@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <div className="footer-logo">
             <Image
-              src="/img/woodenza.svg"
+              src="/img/logo.jpg"
               alt="Holzvanta"
-              width={130}
+              width={50}
               height={45}
             />
           </div>

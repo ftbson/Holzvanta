@@ -28,9 +28,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="navbar-logo">
           <Image
-            src="/img/woodenza.svg"
+            src="/img/logo.jpg"
             alt="Holzvanta"
-            width={100}
+            width={50}
             height={45}
             priority
           />
