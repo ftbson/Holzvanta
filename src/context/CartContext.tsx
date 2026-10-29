@@ -14,7 +14,7 @@ export interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, "quantity">) => void;
+  addToCart: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -44,15 +44,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("holzvanta_cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: Omit<CartItem, "quantity">) => {
+  const addToCart = (
+    product: Omit<CartItem, "quantity">,
+    quantity: number = 1,
+  ) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
         return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item,
         );
       }
-      return [...prevCart, { ...product, quantity: 1 }];
+      return [...prevCart, { ...product, quantity }];
     });
   };
 

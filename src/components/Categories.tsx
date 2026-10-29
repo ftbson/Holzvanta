@@ -66,7 +66,7 @@ export default function Categories() {
           {categories.map((cat) => (
             <Link
               key={cat.id}
-              href={`/shop${cat.slug}`}
+              href="/boutique"
               className={`category-card ${cat.isLarge ? "large-card" : ""}`}
             >
               {/* Kartenhintergrund */}

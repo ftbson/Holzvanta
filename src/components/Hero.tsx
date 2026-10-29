@@ -93,7 +93,7 @@ export default function Hero() {
 
           {/* CTA-Buttons */}
           <div className="hero-cta-group">
-            <Link href="/shop" className="btn-modern-primary">
+            <Link href="/boutique" className="btn-modern-primary">
               <span>KATALOG DURCHSTÖBERN</span>
               <div className="btn-arrow-circle">
                 <i className="fa-solid fa-arrow-right"></i>

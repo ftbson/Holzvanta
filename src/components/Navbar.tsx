@@ -17,8 +17,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "Startseite", path: "/" },
     { name: "Über Holzvanta", path: "/about" },
-    { name: "Katalog", path: "/shop" },
-    { name: "Produkte", path: "/shop" },
+    { name: "Katalog", path: "/boutique" },
+    { name: "Produkte", path: "/boutique" },
     { name: "Hilfe & Kontakt", path: "/contact" },
   ];
 
@@ -58,7 +58,7 @@ export default function Navbar() {
 
           {/* Warenkorb mit Zähler */}
           <Link
-            href="/cart"
+            href="/panier"
             className="icon-btn cart-btn"
             aria-label="Warenkorb ansehen"
           >
@@ -92,7 +92,7 @@ export default function Navbar() {
               />
               <div className="mobile-menu-actions">
                 <Link
-                  href="/cart"
+                  href="/panier"
                   className="icon-btn cart-btn"
                   onClick={() => setIsMenuOpen(false)}
                 >

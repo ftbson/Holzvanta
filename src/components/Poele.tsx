@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { slugifyProductTitle } from "@/data/products";
 
 interface Product {
   id: string;
@@ -103,7 +105,12 @@ export default function Poele() {
           {products.map((product) => (
             <div key={product.id} className="product-card">
               {/* Bild und Rabatt-Badge */}
-              <div className="product-image-wrap">
+              <Link
+                href={`/boutique/${slugifyProductTitle(product.title)}`}
+                className="product-image-link"
+                aria-label={`${product.title} ansehen`}
+              >
+                <div className="product-image-wrap">
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -113,12 +120,18 @@ export default function Poele() {
                 {product.discount && (
                   <span className="badge-discount">{product.discount}</span>
                 )}
-              </div>
+                </div>
+              </Link>
 
               {/* Produktdetails */}
               <div className="product-info">
                 <span className="product-category">{product.category}</span>
-                <h3 className="product-title">{product.title}</h3>
+                <Link
+                  href={`/boutique/${slugifyProductTitle(product.title)}`}
+                  className="product-detail-link"
+                >
+                  <h3 className="product-title">{product.title}</h3>
+                </Link>
 
                 {/* Bewertungen */}
                 <div className="product-rating">

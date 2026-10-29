@@ -33,19 +33,19 @@ export default function Footer() {
           <h4 className="footer-heading">PRODUKTE</h4>
           <ul className="footer-links-list">
             <li>
-              <Link href="/shop">Brennholz</Link>
+              <Link href="/boutique">Brennholz</Link>
             </li>
             <li>
-              <Link href="/shop">Pellets</Link>
+              <Link href="/boutique">Pellets</Link>
             </li>
             <li>
-              <Link href="/shop">Holzbriketts</Link>
+              <Link href="/boutique">Holzbriketts</Link>
             </li>
             <li>
-              <Link href="/shop">Gepresstes Brennholz</Link>
+              <Link href="/boutique">Gepresstes Brennholz</Link>
             </li>
             <li>
-              <Link href="/shop">Kaminöfen</Link>
+              <Link href="/boutique">Kaminöfen</Link>
             </li>
           </ul>
         </div>

@@ -37,3 +37,20 @@ export const productsData: Product[] = [
   { id: "prod-23", discount: "-30 %", category: "Kaminöfen", title: "Raumluftunabhängiger Kaminofen DEVILLE EGUZKI, 6 kW", description: "Modell EGUZKI von DEVILLE, ein raumluftunabhängiger Kaminofen mit einer angegebenen Leistung von 6 kW.", rating: 4, reviewsCount: 58, oldPrice: 2600.0, price: 1820.0, image: "/img/prod/poele-bois-deville-eguzki-6-300x300.webp" },
 
 ];
+
+export function slugifyProductTitle(title: string): string {
+  return title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/ß/g, "ss")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function findProductBySlug(slug: string): Product | undefined {
+  return productsData.find(
+    (product) =>
+      product.id === slug || slugifyProductTitle(product.title) === slug,
+  );
+}

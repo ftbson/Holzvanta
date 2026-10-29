@@ -3,7 +3,11 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { productsData, Product } from "@/data/products";
+import {
+  productsData,
+  Product,
+  slugifyProductTitle,
+} from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
 export default function ShopGrid() {
@@ -182,7 +186,7 @@ export default function ShopGrid() {
             <div key={product.id} className="product-card">
               {/* Bild und Rabatt-Badge */}
               <Link
-                href={`/shop/${product.id}`}
+                href={`/boutique/${slugifyProductTitle(product.title)}`}
                 className="product-image-link"
                 aria-label={`${product.title} ansehen`}
               >
@@ -202,7 +206,7 @@ export default function ShopGrid() {
               {/* Produktdetails */}
               <div className="product-info">
                 <Link
-                  href={`/shop/${product.id}`}
+                  href={`/boutique/${slugifyProductTitle(product.title)}`}
                   className="product-detail-link"
                 >
                   <span className="product-category">{product.category}</span>

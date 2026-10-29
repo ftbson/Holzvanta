@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import { productsData } from "@/data/products";
+import { productsData, slugifyProductTitle } from "@/data/products";
 
 const products = productsData.slice(0, 10);
 
@@ -28,7 +28,7 @@ export default function BestSellers() {
             <div key={product.id} className="product-card">
               {/* Bild und Rabatt-Badge */}
               <Link
-                href={`/shop/${product.id}`}
+                href={`/boutique/${slugifyProductTitle(product.title)}`}
                 className="product-image-link"
               >
                 <div className="product-image-wrap">
@@ -47,7 +47,7 @@ export default function BestSellers() {
               {/* Produktdetails */}
               <div className="product-info">
                 <Link
-                  href={`/shop/${product.id}`}
+                  href={`/boutique/${slugifyProductTitle(product.title)}`}
                   className="product-detail-link"
                 >
                   <span className="product-category">{product.category}</span>
@@ -110,7 +110,7 @@ export default function BestSellers() {
           className="bestsellers-footer"
           style={{ textAlign: "center", marginTop: "40px" }}
         >
-          <Link href="/shop" className="btn-view-all">
+          <Link href="/boutique" className="btn-view-all">
             Katalog durchstöbern <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>
