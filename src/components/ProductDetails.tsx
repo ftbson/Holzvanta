@@ -10,6 +10,10 @@ export default function ProductDetails({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [cartMessage, setCartMessage] = useState("");
+  const totalPrice = product.price * quantity;
+  const totalOldPrice = product.oldPrice
+    ? product.oldPrice * quantity
+    : undefined;
   const similarProducts = productsData
     .filter(
       (item) => item.id !== product.id && item.category === product.category,
@@ -76,13 +80,21 @@ export default function ProductDetails({ product }: { product: Product }) {
             </div>
 
             <div className="product-detail-price">
-              {product.oldPrice && (
+              {totalOldPrice !== undefined && (
                 <span className="old-price">
-                  {product.oldPrice.toFixed(2).replace(".", ",")} €
+                  {totalOldPrice.toFixed(2).replace(".", ",")} €
                 </span>
               )}
-              <strong>{product.price.toFixed(2).replace(".", ",")} €</strong>
+              <strong aria-live="polite" aria-atomic="true">
+                {totalPrice.toFixed(2).replace(".", ",")} €
+              </strong>
+              <span className="product-detail-total-label">
+                Total pour {quantity} {quantity === 1 ? "unité" : "unités"}
+              </span>
             </div>
+            <p className="product-detail-unit-price">
+              Prix unitaire : {product.price.toFixed(2).replace(".", ",")} €
+            </p>
             <p className="product-detail-description">
               {product.description}
             </p>

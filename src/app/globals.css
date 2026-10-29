@@ -1825,6 +1825,18 @@ a {
   font-weight: 800;
 }
 
+.product-detail-total-label {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.product-detail-unit-price {
+  margin: -1.25rem 0 1.75rem;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
 .product-detail-description {
   max-width: 52ch;
   margin-bottom: 2.25rem;
