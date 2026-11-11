@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import { productsData, slugifyProductTitle } from "@/data/products";
+import { productsData } from "@/data/products";
+import { formatPrice } from "@/lib/format-price";
 
 const products = productsData.slice(0, 10);
 
@@ -13,22 +14,22 @@ export default function BestSellers() {
   return (
     <section className="bestsellers-section">
       <div className="bestsellers-container">
-        {/* Überschrift */}
+        {/* Encabezado */}
         <div className="bestsellers-header">
-          <h2 className="bestsellers-title">Die Favoriten unserer Kunden</h2>
+          <h2 className="bestsellers-title">Die beliebtesten Produkte unserer Kunden</h2>
           <p className="bestsellers-subtitle">
-            Eine Auswahl an Brennstoffen und Heizartikeln, bereit für Ihre nächste Bestellung.
+            Ausgewählte Brennstoffe und Heizartikel für Ihre nächste Bestellung.
           </p>
           <div className="bestsellers-line"></div>
         </div>
 
-        {/* Produktgitter */}
+        {/* Grille de produits */}
         <div className="products-grid">
           {products.map((product) => (
             <div key={product.id} className="product-card">
-              {/* Bild und Rabatt-Badge */}
+              {/* Imagen y etiqueta de descuento */}
               <Link
-                href={`/boutique/${slugifyProductTitle(product.title)}`}
+                href={`/boutique/${product.id}`}
                 className="product-image-link"
               >
                 <div className="product-image-wrap">
@@ -44,16 +45,16 @@ export default function BestSellers() {
                 </div>
               </Link>
 
-              {/* Produktdetails */}
+              {/* Detalles del producto */}
               <div className="product-info">
                 <Link
-                  href={`/boutique/${slugifyProductTitle(product.title)}`}
+                  href={`/boutique/${product.id}`}
                   className="product-detail-link"
                 >
                   <span className="product-category">{product.category}</span>
                   <h3 className="product-title">{product.title}</h3>
 
-                  {/* Bewertungen */}
+                  {/* Valoraciones */}
                   <div className="product-rating">
                     <div className="stars">
                       {[...Array(5)].map((_, i) => (
@@ -71,19 +72,19 @@ export default function BestSellers() {
                   </div>
                 </Link>
 
-                {/* Preis */}
+                {/* Precio */}
                 <div className="product-price-box">
                   {product.oldPrice && (
                     <span className="old-price">
-                      {product.oldPrice.toFixed(2).replace(".", ",")} €
+                      {formatPrice(product.oldPrice)}
                     </span>
                   )}
                   <span className="current-price">
-                    {product.price.toFixed(2).replace(".", ",")} €
+                    {formatPrice(product.price)}
                   </span>
                 </div>
 
-                {/* In den Warenkorb Button */}
+                {/* Botón para añadir al carrito */}
                 <button
                   className="btn-add-cart"
                   onClick={() =>
@@ -94,6 +95,7 @@ export default function BestSellers() {
                       price: product.price,
                       oldPrice: product.oldPrice,
                       image: product.image,
+                      // quantity: 1,
                     })
                   }
                 >
@@ -105,13 +107,13 @@ export default function BestSellers() {
           ))}
         </div>
 
-        {/* Alle Produkte ansehen Button */}
+        {/* Botón para ver todos los productos */}
         <div
           className="bestsellers-footer"
           style={{ textAlign: "center", marginTop: "40px" }}
         >
           <Link href="/boutique" className="btn-view-all">
-            Katalog durchstöbern <i className="fa-solid fa-arrow-right"></i>
+            Sortiment entdecken <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>
       </div>

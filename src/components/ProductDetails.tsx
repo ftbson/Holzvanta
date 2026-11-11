@@ -3,36 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Product, productsData, slugifyProductTitle } from "@/data/products";
+import { Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/format-price";
 
 export default function ProductDetails({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const [cartMessage, setCartMessage] = useState("");
-  const totalPrice = product.price * quantity;
-  const totalOldPrice = product.oldPrice
-    ? product.oldPrice * quantity
-    : undefined;
-  const similarProducts = productsData
-    .filter(
-      (item) => item.id !== product.id && item.category === product.category,
-    )
-    .slice(0, 4);
 
   const addProductToCart = () => {
-    addToCart(
-      {
+    for (let index = 0; index < quantity; index += 1) {
+      addToCart({
         id: product.id,
         title: product.title,
         category: product.category,
         price: product.price,
         oldPrice: product.oldPrice,
         image: product.image,
-      },
-      quantity,
-    );
-    setCartMessage(`${quantity} × ${product.title} zum Warenkorb hinzugefügt.`);
+      });
+    }
   };
 
   return (
@@ -41,7 +30,7 @@ export default function ProductDetails({ product }: { product: Product }) {
         <div className="product-page-breadcrumb">
           <Link href="/">Startseite</Link>
           <span>/</span>
-          <Link href="/boutique">Shop</Link>
+          <Link href="/boutique">Sortiment</Link>
           <span>/</span>
           <span>{product.title}</span>
         </div>
@@ -80,21 +69,13 @@ export default function ProductDetails({ product }: { product: Product }) {
             </div>
 
             <div className="product-detail-price">
-              {totalOldPrice !== undefined && (
+              {product.oldPrice && (
                 <span className="old-price">
-                  {totalOldPrice.toFixed(2).replace(".", ",")} €
+                  {formatPrice(product.oldPrice)}
                 </span>
               )}
-              <strong aria-live="polite" aria-atomic="true">
-                {totalPrice.toFixed(2).replace(".", ",")} €
-              </strong>
-              <span className="product-detail-total-label">
-                Total pour {quantity} {quantity === 1 ? "unité" : "unités"}
-              </span>
+              <strong>{formatPrice(product.price)}</strong>
             </div>
-            <p className="product-detail-unit-price">
-              Prix unitaire : {product.price.toFixed(2).replace(".", ",")} €
-            </p>
             <p className="product-detail-description">
               {product.description}
             </p>
@@ -126,54 +107,11 @@ export default function ProductDetails({ product }: { product: Product }) {
                 In den Warenkorb
               </button>
             </div>
-            {cartMessage && (
-              <p className="product-cart-message" role="status">
-                {cartMessage}
-              </p>
-            )}
             <Link href="/panier" className="product-cart-link">
               Zum Warenkorb
             </Link>
           </div>
         </div>
-
-        {similarProducts.length > 0 && (
-          <section className="similar-products" aria-labelledby="similar-products-title">
-            <h2 id="similar-products-title">Ähnliche Produkte</h2>
-            <div className="similar-products-grid">
-              {similarProducts.map((similarProduct) => (
-                <Link
-                  key={similarProduct.id}
-                  href={`/boutique/${slugifyProductTitle(similarProduct.title)}`}
-                  className="similar-product-card"
-                >
-                  <div className="similar-product-image">
-                    <Image
-                      src={similarProduct.image}
-                      alt={similarProduct.title}
-                      fill
-                      sizes="(max-width: 640px) 50vw, 240px"
-                    />
-                    {similarProduct.discount && (
-                      <span className="badge-discount">
-                        {similarProduct.discount}
-                      </span>
-                    )}
-                  </div>
-                  <div className="similar-product-info">
-                    <span className="product-category">
-                      {similarProduct.category}
-                    </span>
-                    <h3>{similarProduct.title}</h3>
-                    <span className="similar-product-price">
-                      {similarProduct.price.toFixed(2).replace(".", ",")} €
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
       </div>
     </main>
   );

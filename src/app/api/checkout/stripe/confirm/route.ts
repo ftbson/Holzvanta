@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const { sessionId } = await request.json();
     if (!sessionId || typeof sessionId !== "string") {
       return NextResponse.json(
-        { error: "La sesión de Stripe no es válida." },
+        { error: "Die Stripe-Sitzung ist ungültig." },
         { status: 400 },
       );
     }
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error al confirmar el pago con Stripe:", error);
     return NextResponse.json(
-      { error: "No se ha podido confirmar el pago." },
+      { error: "Die Zahlung konnte nicht bestätigt werden." },
       { status: 500 },
     );
   }

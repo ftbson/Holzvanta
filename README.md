@@ -16,19 +16,6 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Database migrations
-
-Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` in `.env.local` (or in the
-deployment environment), then apply pending migrations before deploying:
-
-```bash
-npm run db:migrate
-```
-
-This migration creates the visitor statistics table and renames the previous
-Wero settings table for Bizum. Back up the database before applying migrations
-to a production database.
-
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

@@ -12,7 +12,7 @@ async function isAdmin() {
 
 export async function GET() {
   if (!(await isAdmin())) {
-    return NextResponse.json({ error: "Nicht autorisiert" }, { status: 401 });
+    return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
   }
 
   try {
@@ -25,9 +25,9 @@ export async function GET() {
       },
     );
   } catch (error) {
-    console.error("Fehler beim Laden der Bizum-Einstellungen:", error);
+    console.error("Erreur de chargement du paramétrage Bizum :", error);
     return NextResponse.json(
-      { error: "Die Bizum-Einstellungen konnten nicht geladen werden." },
+      { error: "Impossible de charger le paramétrage Bizum." },
       { status: 500 },
     );
   }
@@ -35,7 +35,7 @@ export async function GET() {
 
 export async function PUT(request: Request) {
   if (!(await isAdmin())) {
-    return NextResponse.json({ error: "Nicht autorisiert" }, { status: 401 });
+    return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
   }
 
   try {
@@ -52,7 +52,7 @@ export async function PUT(request: Request) {
       (enabled && (!recipientName || !phoneNumber))
     ) {
       return NextResponse.json(
-        { error: "Name und Telefonnummer sind erforderlich, um Bizum zu aktivieren." },
+        { error: "Le nom et le numéro Bizum sont requis pour activer Bizum." },
         { status: 400 },
       );
     }
@@ -77,9 +77,9 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ success: true, ...values });
   } catch (error) {
-    console.error("Fehler beim Speichern der Bizum-Einstellungen:", error);
+    console.error("Erreur d'enregistrement du paramétrage Bizum :", error);
     return NextResponse.json(
-      { error: "Die Bizum-Einstellungen konnten nicht gespeichert werden." },
+      { error: "Impossible d'enregistrer le paramétrage Bizum." },
       { status: 500 },
     );
   }

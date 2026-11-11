@@ -7,29 +7,29 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      question: "Welche Brennholzsorten kann ich finden?",
+      question: "Welche Brennholzsorten finde ich im Sortiment?",
       answer:
-        "Unser Katalog umfasst vor allem Harthölzer mit einem hohen Heizwert wie Eiche, Buche, Hainbuche und Esche. Ihre gleichmäßige und langanhaltende Verbrennung eignet sich ideal für Öfen, Kamine und geschlossene Feuerstätten.",
+        "Unser Sortiment umfasst vor allem Harthölzer mit hohem Heizwert wie Eiche, Buche, Hainbuche und Esche. Durch ihre gleichmäßige und lang anhaltende Verbrennung eignen sie sich für Öfen, Kamine und geschlossene Feuerstellen.",
     },
     {
-      question: "Kann das Brennholz sofort nach Erhalt verwendet werden?",
+      question: "Kann ich das Brennholz direkt nach der Lieferung verwenden?",
       answer:
-        "Ja. Das Brennholz ist kammergetrocknet und hat eine Restfeuchte von unter 20 %, sodass es sofort einsatzbereit ist und eine effiziente Verbrennung mit weniger Rauch gewährleistet.",
+        "Ja. Das Brennholz wird kammergetrocknet und hat eine Restfeuchte von weniger als 20 %. Es ist sofort einsatzbereit und ermöglicht eine effiziente Verbrennung mit weniger Rauch.",
     },
     {
-      question: "In welchen Längen werden die Holzscheite verkauft?",
+      question: "In welchen Längen sind die Holzscheite erhältlich?",
       answer:
-        "Wir bieten Scheite in 25 cm und 33 cm an, gängige Maße, die sich perfekt für viele moderne Öfen und Kamine eignen.",
+        "Wir bieten Holzscheite mit 25 und 33 cm Länge an – gängige Maße, die für viele moderne Öfen und Kamine geeignet sind.",
     },
     {
-      question: "Wie erfolgt die Anlieferung der Paletten?",
+      question: "Wie werden die Paletten geliefert?",
       answer:
-        "Wir liefern die Paletten direkt zu Ihnen nach Hause und stellen sie mithilfe eines Hubwagens so nah wie möglich an Ihren Lagerort ab.",
+        "Wir liefern die Paletten zu Ihnen nach Hause und stellen sie mit einem Hubwagen so nah wie möglich an dem Ort ab, an dem Sie sie lagern möchten.",
     },
     {
       question: "Wie viel Brennholz benötige ich für die Heizsaison?",
       answer:
-        "Wenn Sie Ihren Kamin nur gelegentlich anzünden, reicht meist eine halbe Palette aus. Ist Holz Ihre Hauptwärmequelle im Winter, benötigen je nach Wohnungsgröße zwei bis drei Paletten.",
+        "Wenn Sie den Kamin nur gelegentlich nutzen, reicht meist eine halbe Palette. Ist Brennholz im Winter Ihre Hauptwärmequelle, benötigen Sie je nach Größe des Hauses möglicherweise zwei bis drei Paletten.",
     },
   ];
 
@@ -41,7 +41,7 @@ export default function ContactPage() {
     <section className="contact-section">
       <div className="contact-container">
         <div className="contact-grid">
-          {/* COLUMNA IZQUIERDA: preguntas frecuentes */}
+          {/* LINKE SPALTE: häufige Fragen */}
           <div className="faq-column">
             <span className="section-subtitle">WIR HELFEN IHNEN</span>
             <h2 className="section-title">Häufige Fragen zu Brennholz und Bestellungen</h2>
@@ -75,25 +75,25 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* SEPARADOR VERTICAL */}
+          {/* VERTIKALE TRENNLINIE */}
           <div className="vertical-divider"></div>
 
-          {/* COLUMNA DERECHA: FORMULARIO */}
+          {/* RECHTE SPALTE: KONTAKTFORMULAR */}
           <div className="form-column">
             <span className="section-subtitle">BRAUCHEN SIE HILFE?</span>
             <h2 className="section-title">
-              Wir sind hier, um Ihre Fragen zu Produkten, Lieferungen oder Bestellungen zu beantworten.
+              Wir beantworten gerne Ihre Fragen zu Produkten, Lieferungen und Bestellungen.
             </h2>
 
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-              {/* Campo de texto oculto / anti-spam */}
+              {/* Textfeld */}
               <input
                 type="text"
                 className="input-full-bordered"
                 placeholder=""
               />
 
-              {/* Campos del formulario */}
+              {/* Formularfelder */}
               <div className="input-grid">
                 <input
                   type="text"
@@ -115,14 +115,14 @@ export default function ContactPage() {
                 <input
                   type="text"
                   className="input-underline"
-                  placeholder="Betreff der Anfrage"
+                  placeholder="Grund Ihrer Anfrage"
                 />
               </div>
 
-              {/* Mensaje */}
+              {/* Nachricht */}
               <textarea
                 className="input-underline textarea"
-                placeholder="Teilen Sie uns mit, wie wir Ihnen helfen können"
+                placeholder="Wie können wir Ihnen helfen?"
                 rows={3}
                 required
               ></textarea>

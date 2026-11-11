@@ -3,50 +3,47 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  productsData,
-  Product,
-  slugifyProductTitle,
-} from "@/data/products";
+import { productsData, Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/format-price";
 
 export default function ShopGrid() {
   const { addToCart } = useCart();
 
-  // Paginierung und Anzeigeoptionen
+  // Paginación y opciones de visualización
   const [itemsPerPage, setItemsPerPage] = useState<number>(12);
   const [sortOption, setSortOption] = useState<string>("standard");
 
-  // Filter
+  // Filtros
   const [showFilterPanel, setShowFilterPanel] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [maxPrice, setMaxPrice] = useState<number>(2000);
   const [minRating, setMinRating] = useState<number>(0);
 
-  // Verfügbare Kategorien abrufen
+  // Obtener las categorías disponibles
   const categories = useMemo(() => {
     const cats = new Set(productsData.map((p) => p.category));
     return ["all", ...Array.from(cats)];
   }, []);
 
-  // Filter und Sortierung anwenden
+  // Application des filtres et du tri
   const filteredProducts = useMemo(() => {
     let result = [...productsData];
 
-    // 1. Nach Kategorie filtern
+    // 1. Filtrar por categoría
     if (selectedCategory !== "all") {
       result = result.filter((p) => p.category === selectedCategory);
     }
 
-    // 2. Nach Maximalpreis filtern
+    // 2. Filtrar por precio máximo
     result = result.filter((p) => p.price <= maxPrice);
 
-    // 3. Nach Mindestbewertung filtern
+    // 3. Filtrar por valoración mínima
     if (minRating > 0) {
       result = result.filter((p) => (p.rating || 0) >= minRating);
     }
 
-    // 4. Produkte sortieren
+    // 4. Ordenar los productos
     if (sortOption === "price-asc") {
       result.sort((a, b) => a.price - b.price);
     } else if (sortOption === "price-desc") {
@@ -58,10 +55,10 @@ export default function ShopGrid() {
     return result;
   }, [selectedCategory, maxPrice, minRating, sortOption]);
 
-  // Produkte der aktuellen Seite
+  // Productos de la página actual
   const displayedProducts = filteredProducts.slice(0, itemsPerPage);
 
-  // Filter zurücksetzen
+  // Restablecer los filtros
   const resetFilters = () => {
     setSelectedCategory("all");
     setMaxPrice(2000);
@@ -72,12 +69,12 @@ export default function ShopGrid() {
   return (
     <section className="shop-section">
       <div className="shop-container">
-        {/* WERKZEUGLEISTE UND FILTER */}
+        {/* BARRE D'OUTILS ET FILTRES */}
         <div className="shop-toolbar">
           <div className="shop-breadcrumb">
             <Link href="/">Startseite</Link>
             <span className="separator">/</span>
-            <span className="current">Shop</span>
+            <span className="current">Sortiment</span>
           </div>
 
           <div className="shop-controls">
@@ -100,7 +97,7 @@ export default function ShopGrid() {
                 onChange={(e) => setSortOption(e.target.value)}
                 className="sort-select"
               >
-                <option value="standard">Empfohlene Reihenfolge</option>
+                <option value="standard">Empfohlene Sortierung</option>
                 <option value="price-asc">Preis: aufsteigend</option>
                 <option value="price-desc">Preis: absteigend</option>
                 <option value="rating-desc">Höchste Bewertung</option>
@@ -117,7 +114,7 @@ export default function ShopGrid() {
           </div>
         </div>
 
-        {/* FILTERPANEL */}
+        {/* PANNEAU DE FILTRES */}
         {showFilterPanel && (
           <div className="filter-panel">
             <div className="filter-group">
@@ -127,7 +124,7 @@ export default function ShopGrid() {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">Alle Kategorien anzeigen</option>
+                <option value="all">Alle Kategorien</option>
                 {categories
                   .filter((cat) => cat !== "all")
                   .map((cat) => (
@@ -140,7 +137,7 @@ export default function ShopGrid() {
 
             <div className="filter-group">
               <label className="filter-label">
-                Max. Preis: <strong>{maxPrice.toFixed(2)} €</strong>
+                Höchstpreis: <strong>{formatPrice(maxPrice)}</strong>
               </label>
               <input
                 type="range"
@@ -160,7 +157,7 @@ export default function ShopGrid() {
                 onChange={(e) => setMinRating(Number(e.target.value))}
                 className="filter-select"
               >
-                <option value={0}>Jede Bewertung</option>
+                <option value={0}>Alle Bewertungen</option>
                 <option value={4}>4 Sterne oder mehr</option>
                 <option value={4.5}>4,5 Sterne oder mehr</option>
                 <option value={5}>5 Sterne</option>
@@ -173,20 +170,20 @@ export default function ShopGrid() {
           </div>
         )}
 
-        {/* ERGEBNISSE */}
+        {/* RESULTADOS */}
         <div className="results-count">
           Auf dieser Seite: <strong>{displayedProducts.length}</strong> von{" "}
           <strong>{filteredProducts.length}</strong>{" "}
           {filteredProducts.length === 1 ? "Produkt" : "Produkten"}
         </div>
 
-        {/* PRODUKTGITTER */}
+        {/* GRILLE DE PRODUITS */}
         <div className="products-grid">
           {displayedProducts.map((product: Product) => (
             <div key={product.id} className="product-card">
-              {/* Bild und Rabatt-Badge */}
+              {/* Imagen y etiqueta de promoción */}
               <Link
-                href={`/boutique/${slugifyProductTitle(product.title)}`}
+                href={`/boutique/${product.id}`}
                 className="product-image-link"
                 aria-label={`${product.title} ansehen`}
               >
@@ -203,16 +200,16 @@ export default function ShopGrid() {
                 </div>
               </Link>
 
-              {/* Produktdetails */}
+              {/* Detalles del producto */}
               <div className="product-info">
                 <Link
-                  href={`/boutique/${slugifyProductTitle(product.title)}`}
+                  href={`/boutique/${product.id}`}
                   className="product-detail-link"
                 >
                   <span className="product-category">{product.category}</span>
                   <h3 className="product-title">{product.title}</h3>
 
-                  {/* Bewertungen */}
+                  {/* Valoraciones */}
                   <div className="product-rating">
                     <div className="stars">
                       {[...Array(5)].map((_, i) => (
@@ -231,20 +228,20 @@ export default function ShopGrid() {
                     )}
                   </div>
 
-                  {/* Preis */}
+                  {/* Precio */}
                   <div className="product-price-box">
                     {product.oldPrice && (
                       <span className="old-price">
-                        {product.oldPrice.toFixed(2)} €
+                        {formatPrice(product.oldPrice)}
                       </span>
                     )}
                     <span className="current-price">
-                      {product.price.toFixed(2)} €
+                      {formatPrice(product.price)}
                     </span>
                   </div>
                 </Link>
 
-                {/* In den Warenkorb Button */}
+                {/* Botón para añadir al carrito */}
                 <button
                   className="btn-add-cart"
                   onClick={() =>
@@ -255,6 +252,7 @@ export default function ShopGrid() {
                       price: product.price,
                       oldPrice: product.oldPrice,
                       image: product.image,
+                      // quantity: 1,
                     })
                   }
                 >
@@ -268,7 +266,7 @@ export default function ShopGrid() {
 
         {displayedProducts.length === 0 && (
           <div className="no-products-found">
-            <p>Es wurden keine Produkte gefunden, die den ausgewählten Filtern entsprechen.</p>
+            <p>Wir haben keine Produkte gefunden, die den ausgewählten Filtern entsprechen.</p>
             <button className="btn-reset-filters" onClick={resetFilters}>
               Filter zurücksetzen
             </button>

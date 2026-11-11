@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     if (!customer?.email || validItems.length === 0) {
       return NextResponse.json(
-        { error: "Los datos del pedido no son válidos." },
+        { error: "Die Bestelldaten sind ungültig." },
         { status: 400 },
       );
     }
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
                 shipping_rate_data: {
                   type: "fixed_amount",
                   fixed_amount: { amount: 1500, currency: "eur" },
-                  display_name: "Envío",
+                  display_name: "Versand",
                 },
               },
             ]
@@ -75,7 +75,7 @@ export async function POST(request: Request) {
     });
 
     if (!session.url) {
-      throw new Error("Stripe no ha devuelto una URL de pago.");
+      throw new Error("Stripe hat keine Zahlungs-URL zurückgegeben.");
     }
 
     await db.insert(orders).values({
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error de Stripe:", error);
     return NextResponse.json(
-      { error: "No se ha podido iniciar el pago con Stripe." },
+      { error: "Die Zahlung mit Stripe konnte nicht gestartet werden." },
       { status: 500 },
     );
   }

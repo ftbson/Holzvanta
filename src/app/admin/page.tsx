@@ -83,17 +83,11 @@ export default function AdminPage() {
           .catch(() => undefined);
         fetch("/api/admin/bizum")
           .then(async (settingsResponse) => {
-            const data = await settingsResponse.json();
-            if (!settingsResponse.ok)
-              throw new Error(data.error || "Impossible de charger Bizum.");
-            setBizumSettings(data);
+            if (settingsResponse.ok)
+              setBizumSettings(await settingsResponse.json());
           })
-          .catch((error: unknown) =>
-            setBizumMessage(
-              error instanceof Error
-                ? error.message
-                : "Impossible de charger le paramétrage Bizum.",
-            ),
+          .catch(() =>
+            setBizumMessage("Impossible de charger le paramétrage Bizum."),
           );
         fetch("/api/admin/bank-transfer")
           .then(async (settingsResponse) => {
@@ -119,9 +113,7 @@ export default function AdminPage() {
     let active = true;
     const loadAnalytics = async () => {
       try {
-        const response = await fetch("/api/analytics", {
-          cache: "no-store",
-        });
+        const response = await fetch("/api/admin/analytics");
         if (!response.ok)
           throw new Error("Impossible de charger les statistiques de visite.");
         const data: AnalyticsSummary = await response.json();
@@ -195,17 +187,9 @@ export default function AdminPage() {
   const loadBizumSettings = async () => {
     try {
       const response = await fetch("/api/admin/bizum");
-      const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.error || "Impossible de charger le paramétrage Bizum.");
-      setBizumSettings(data);
-      setBizumMessage("");
-    } catch (error) {
-      setBizumMessage(
-        error instanceof Error
-          ? error.message
-          : "Impossible de charger le paramétrage Bizum.",
-      );
+      if (response.ok) setBizumSettings(await response.json());
+    } catch {
+      setBizumMessage("Impossible de charger le paramétrage Bizum.");
     }
   };
 

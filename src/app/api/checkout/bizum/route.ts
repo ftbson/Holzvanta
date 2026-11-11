@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       !settings.phoneNumber
     ) {
       return NextResponse.json(
-        { error: "El pago mediante Bizum no está disponible en este momento." },
+        { error: "Die Zahlung per Bizum ist derzeit nicht verfügbar." },
         { status: 503 },
       );
     }
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     if (!customer?.email || validItems.length === 0) {
       return NextResponse.json(
-        { error: "Los datos del pedido no son válidos." },
+        { error: "Die Bestelldaten sind ungültig." },
         { status: 400 },
       );
     }
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error al registrar el pedido de Bizum:", error);
     return NextResponse.json(
-      { error: "No se ha podido registrar el pedido." },
+      { error: "Die Bestellung konnte nicht registriert werden." },
       { status: 500 },
     );
   }

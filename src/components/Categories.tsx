@@ -11,38 +11,38 @@ interface CategoryItem {
 
 const categories: CategoryItem[] = [
   {
-    id: "brennholz",
+    id: "bois-de-chauffage",
     title: "Brennholz",
-    slug: "/brennholz",
+    slug: "/bois-de-chauffage",
     icon: "fa-fire",
     image: "/img/cat-bois.jpg",
     isLarge: true,
   },
   {
-    id: "pellets",
+    id: "granules",
     title: "Holzpellets",
-    slug: "/pellets",
+    slug: "/granules",
     icon: "fa-seedling",
     image: "/img/cat-granules.jpg",
   },
   {
-    id: "holzbriketts",
+    id: "briquettes",
     title: "Holzbriketts",
-    slug: "/holzbriketts",
+    slug: "/briquettes",
     icon: "fa-cubes",
     image: "/img/cat-briquettes.jpg",
   },
   {
-    id: "pressholz",
-    title: "Pressholz",
-    slug: "/pressholz",
+    id: "bois-presse",
+    title: "Holzpresslinge",
+    slug: "/bois-presse",
     icon: "fa-layer-group",
     image: "/img/cat-presse.jpg",
   },
   {
-    id: "kaminoefen",
-    title: "Kaminöfen und Kaminzubehör",
-    slug: "/kaminoefen",
+    id: "fours",
+    title: "Kaminöfen und Holzheizungen",
+    slug: "/fours",
     icon: "fa-dumpster-fire",
     image: "/img/cat-fours.jpg",
   },
@@ -52,38 +52,38 @@ export default function Categories() {
   return (
     <section className="categories-section" id="categories">
       <div className="categories-container">
-        {/* Überschrift */}
+        {/* Encabezado */}
         <div className="categories-header">
-          <span className="categories-tag">Finden Sie, was Sie brauchen</span>
-          <h2 className="categories-title">Brennstoffe und Heizung für Ihr Zuhause</h2>
+          <span className="categories-tag">Finden Sie das Richtige</span>
+          <h2 className="categories-title">Brennstoffe und Heizlösungen für Ihr Zuhause</h2>
           <p className="categories-subtitle">
-            Entdecken Sie unsere Auswahl an Brennholz, Pellets und Öfen, um die passende Option für Ihr Haus zu wählen.
+            Entdecken Sie unser Sortiment an Brennholz, Pellets und Öfen und finden Sie die passende Lösung für Ihr Zuhause.
           </p>
         </div>
 
-        {/* Raster */}
+        {/* Grilla */}
         <div className="categories-grid">
           {categories.map((cat) => (
             <Link
               key={cat.id}
-              href="/boutique"
+              href={`/boutique${cat.slug}`}
               className={`category-card ${cat.isLarge ? "large-card" : ""}`}
             >
-              {/* Kartenhintergrund */}
+              {/* Fond de la carte */}
               <div
                 className="card-bg-image"
                 style={{ backgroundImage: `url(${cat.image})` }}
               />
               <div className="card-overlay" />
 
-              {/* Kartenkopf (Icon-Badge) */}
+              {/* Haut de carte (Icône badge) */}
               <div className="card-header-info">
                 <div className="card-icon-badge">
                   <i className={`fa-solid ${cat.icon}`}></i>
                 </div>
               </div>
 
-              {/* Kartenfuß (Titel + Aktionsbutton) */}
+              {/* Bas de carte (Titre + Bouton d'action) */}
               <div className="card-content">
                 <h3 className="card-title">{cat.title}</h3>
                 <div className="card-action-btn">

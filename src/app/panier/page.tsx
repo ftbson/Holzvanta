@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/format-price";
 
 type Customer = {
   firstName: string;
@@ -32,7 +33,7 @@ type PaymentMethod = "stripe" | "bizum" | "bank_transfer";
 const emptyCustomer: Customer = {
   firstName: "",
   lastName: "",
-  country: "Deutschland",
+  country: "Spanien",
   streetAddress: "",
   whatsapp: "",
   email: "",
@@ -54,18 +55,14 @@ export default function CartPage() {
   useEffect(() => {
     fetch("/api/bizum")
       .then(async (response) => {
-        if (!response.ok)
-          throw new Error(
-            "No ha sido posible consultar la disponibilidad de Bizum.",
-          );
+        if (!response.ok) throw new Error("Die Verfügbarkeit von Bizum konnte nicht abgerufen werden.");
         setBizumDetails(await response.json());
       })
       .catch(() => setBizumDetails({ enabled: false }));
 
     fetch("/api/bank-transfer")
       .then(async (response) => {
-        if (!response.ok)
-          throw new Error("No ha sido posible consultar los datos bancarios.");
+        if (!response.ok) throw new Error("Die Bankverbindung konnte nicht abgerufen werden.");
         setBankTransferDetails(await response.json());
       })
       .catch(() => setBankTransferDetails({ enabled: false }));
@@ -94,39 +91,35 @@ export default function CartPage() {
       });
       const data = await response.json();
       if (!response.ok)
-        throw new Error(data.error || "No se pudo completar el pedido.");
+        throw new Error(data.error || "Ihre Bestellung konnte nicht abgeschlossen werden.");
       if (paymentMethod === "stripe") {
         if (!data.url)
-          throw new Error(
-            "No se recibió el enlace para continuar con el pago.",
-          );
+          throw new Error("Der Link zur Fortsetzung der Zahlung wurde nicht empfangen.");
         window.location.assign(data.url);
         return;
       }
 
       if (paymentMethod === "bizum") {
         setMessage(
-          `Hemos registrado el pedido ${data.orderId}. Envía ${data.grandTotal.toFixed(2)} € por Bizum al ${data.bizumDetails.phoneNumber}, a nombre de ${data.bizumDetails.recipientName}.`,
+          `Ihre Bestellung ${data.orderId} wurde registriert. Bitte überweisen Sie ${formatPrice(data.grandTotal)} per Bizum an ${data.bizumDetails.phoneNumber} (Empfänger: ${data.bizumDetails.recipientName}).`,
         );
       } else {
         const { accountName, iban, bic } = data.bankDetails;
         const details = [
-          accountName && `titular: ${accountName}`,
+          accountName && `Kontoinhaber: ${accountName}`,
           iban && `IBAN: ${iban}`,
           bic && `BIC: ${bic}`,
         ]
           .filter(Boolean)
           .join(" | ");
         setMessage(
-          `Hemos registrado el pedido ${data.orderId}. Transfiere ${data.grandTotal.toFixed(2)} €${details ? ` a ${details}` : ". Contacta con nosotros para solicitar los datos bancarios"}. Incluye esta referencia: ${data.orderId}.`,
+          `Ihre Bestellung ${data.orderId} wurde registriert. Bitte überweisen Sie ${formatPrice(data.grandTotal)}${details ? ` an ${details}` : ". Kontaktieren Sie uns, um die Bankverbindung zu erhalten"}. Geben Sie dabei diese Bestellnummer an: ${data.orderId}.`,
         );
       }
       clearCart();
     } catch (error) {
       setMessage(
-        error instanceof Error
-          ? error.message
-          : "No se pudo completar el pedido.",
+        error instanceof Error ? error.message : "Ihre Bestellung konnte nicht abgeschlossen werden.",
       );
     } finally {
       setLoading(false);
@@ -136,28 +129,25 @@ export default function CartPage() {
   return (
     <main className="cart-page">
       <div className="cart-container">
-        <h1 className="cart-page-title">Tu cesta</h1>
+        <h1 className="cart-page-title">Ihr Warenkorb</h1>
         {cart.length === 0 ? (
           <div className="empty-cart">
             {message && <p className="checkout-message">{message}</p>}
             <i className="fa-solid fa-basket-shopping empty-icon"></i>
-            <h2>Aún no has añadido productos</h2>
-            <p>
-              Explora el catálogo y encuentra leña, pellets o una estufa para tu
-              hogar.
-            </p>
+            <h2>Ihr Warenkorb ist noch leer</h2>
+            <p>Entdecken Sie unser Sortiment an Brennholz, Pellets und Öfen für Ihr Zuhause.</p>
             <Link href="/boutique" className="btn-primary-cart">
-              Ir al catálogo
+              Zum Sortiment
             </Link>
           </div>
         ) : (
           <form className="cart-layout" onSubmit={checkout}>
             <div className="cart-items-section">
               <div className="cart-items-header">
-                <span>Artículo</span>
-                <span>Precio unitario</span>
-                <span>Unidades</span>
-                <span>Importe</span>
+                <span>Artikel</span>
+                <span>Stückpreis</span>
+                <span>Menge</span>
+                <span>Gesamt</span>
                 <span></span>
               </div>
               {cart.map((item) => (
@@ -177,7 +167,7 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="cart-item-price">
-                    {item.price.toFixed(2).replace(".", ",")} €
+                    {formatPrice(item.price)}
                   </div>
                   <div className="cart-item-quantity">
                     <button
@@ -195,14 +185,13 @@ export default function CartPage() {
                     </button>
                   </div>
                   <div className="cart-item-total">
-                    {(item.price * item.quantity).toFixed(2).replace(".", ",")}{" "}
-                    €
+                    {formatPrice(item.price * item.quantity)}
                   </div>
                   <button
                     type="button"
                     className="btn-remove"
                     onClick={() => removeFromCart(item.id)}
-                    aria-label={`Quitar ${item.title} de la cesta`}
+                    aria-label={`${item.title} aus dem Warenkorb entfernen`}
                   >
                     <i className="fa-solid fa-trash"></i>
                   </button>
@@ -210,23 +199,23 @@ export default function CartPage() {
               ))}
               <div className="cart-actions-bottom">
                 <button type="button" className="btn-clear" onClick={clearCart}>
-                  Eliminar todos los artículos
+                  Alle Artikel entfernen
                 </button>
                 <Link href="/boutique" className="btn-continue">
-                  <i className="fa-solid fa-arrow-left"></i> Volver al catálogo
+                  <i className="fa-solid fa-arrow-left"></i> Weiter einkaufen
                 </Link>
               </div>
               <section className="checkout-customer">
-                <h2>Datos para la entrega</h2>
+                <h2>Lieferdaten</h2>
                 <div className="checkout-fields">
                   {(
                     [
-                      ["firstName", "Nombre"],
-                      ["lastName", "Apellidos"],
-                      ["email", "Correo electrónico"],
-                      ["whatsapp", "Teléfono o WhatsApp"],
-                      ["streetAddress", "Dirección donde recibir el pedido"],
-                      ["country", "País de entrega"],
+                      ["firstName", "Vorname"],
+                      ["lastName", "Nachname"],
+                      ["email", "E-Mail-Adresse"],
+                      ["whatsapp", "Telefon oder WhatsApp"],
+                      ["streetAddress", "Lieferadresse"],
+                      ["country", "Lieferland"],
                     ] as [keyof Customer, string][]
                   ).map(([field, label]) => (
                     <label key={field}>
@@ -245,23 +234,21 @@ export default function CartPage() {
               </section>
             </div>
             <div className="cart-summary-card">
-              <h3>Detalle de la compra</h3>
+              <h3>Bestellübersicht</h3>
               <div className="summary-row">
                 <span>Subtotal</span>
-                <span>{subtotal.toFixed(2).replace(".", ",")} €</span>
+                <span>{formatPrice(subtotal)}</span>
               </div>
               <div className="summary-row">
-                <span>Coste de envío</span>
+                <span>Versandkosten</span>
                 <span>
-                  {shippingCost === 0
-                    ? "Sin coste"
-                    : `${shippingCost.toFixed(2).replace(".", ",")} €`}
+                  {shippingCost === 0 ? "Kostenlos" : formatPrice(shippingCost)}
                 </span>
               </div>
               <div className="summary-divider"></div>
               <div className="summary-row total">
-                <span>Total a pagar (impuestos incluidos)</span>
-                <span>{grandTotal.toFixed(2).replace(".", ",")} €</span>
+                <span>Gesamtbetrag (inkl. Steuern)</span>
+                <span>{formatPrice(grandTotal)}</span>
               </div>
               <div className="payment-options">
                 <label>
@@ -272,7 +259,7 @@ export default function CartPage() {
                     checked={paymentMethod === "stripe"}
                     onChange={() => setPaymentMethod("stripe")}
                   />
-                  Tarjeta bancaria
+                  Kreditkarte
                 </label>
                 <label>
                   <input
@@ -284,7 +271,7 @@ export default function CartPage() {
                     onChange={() => setPaymentMethod("bizum")}
                   />
                   Bizum
-                  {!bizumDetails?.enabled && " (temporalmente no disponible)"}
+                  {!bizumDetails?.enabled && " (derzeit nicht verfügbar)"}
                 </label>
                 <label>
                   <input
@@ -295,42 +282,41 @@ export default function CartPage() {
                     disabled={!bankTransferDetails?.enabled}
                     onChange={() => setPaymentMethod("bank_transfer")}
                   />
-                  Transferencia bancaria
-                  {!bankTransferDetails?.enabled &&
-                    " (temporalmente no disponible)"}
+                  Banküberweisung
+                  {!bankTransferDetails?.enabled && " (derzeit nicht verfügbar)"}
                 </label>
               </div>
               {paymentMethod === "bizum" && bizumDetails?.enabled ? (
                 <div className="bank-transfer-details" role="status">
-                  <strong>Datos de Bizum</strong>
+                  <strong>Bizum-Daten</strong>
                   {bizumDetails.recipientName && (
                     <p>
-                      <span>Beneficiario</span> {bizumDetails.recipientName}
+                      <span>Empfänger</span> {bizumDetails.recipientName}
                     </p>
                   )}
                   {bizumDetails.phoneNumber && (
                     <p>
-                      <span>Número</span> {bizumDetails.phoneNumber}
+                      <span>Nummer</span> {bizumDetails.phoneNumber}
                     </p>
                   )}
                   <p className="bank-transfer-reference">
-                    Completa el pago desde Bizum. El pedido quedará pendiente de
-                    verificación.
+                    Schließen Sie die Zahlung über Bizum ab. Die Bestellung
+                    bleibt bis zur Überprüfung ausstehend.
                   </p>
                 </div>
               ) : paymentMethod === "bizum" ? (
                 <p className="checkout-message">
                   {bizumDetails === null
-                    ? "Consultando los datos de Bizum..."
-                    : "Bizum todavía no está configurado. Contacta con nosotros si quieres completar el pedido con este método."}
+                    ? "Bizum-Daten werden abgerufen ..."
+                    : "Bizum ist noch nicht eingerichtet. Kontaktieren Sie uns, wenn Sie mit dieser Methode bestellen möchten."}
                 </p>
               ) : paymentMethod === "bank_transfer" &&
                 bankTransferDetails?.enabled ? (
                 <div className="bank-transfer-details" role="status">
-                  <strong>Datos bancarios</strong>
+                  <strong>Bankverbindung</strong>
                   {bankTransferDetails.accountName && (
                     <p>
-                      <span>Beneficiario</span>{" "}
+                      <span>Kontoinhaber</span>{" "}
                       {bankTransferDetails.accountName}
                     </p>
                   )}
@@ -345,15 +331,15 @@ export default function CartPage() {
                     </p>
                   )}
                   <p className="bank-transfer-reference">
-                    Incluye la referencia del pedido en la transferencia. La
-                    compra se tramitará cuando recibamos los fondos.
+                    Geben Sie bei der Überweisung die Bestellnummer an. Ihre
+                    Bestellung wird bearbeitet, sobald die Zahlung eingegangen ist.
                   </p>
                 </div>
               ) : paymentMethod === "bank_transfer" ? (
                 <p className="checkout-message">
                   {bankTransferDetails === null
-                    ? "Consultando los datos bancarios..."
-                    : "El pago por transferencia todavía no está configurado. Contacta con nosotros para completar el pedido."}
+                    ? "Bankverbindung wird abgerufen ..."
+                    : "Die Banküberweisung ist noch nicht eingerichtet. Kontaktieren Sie uns, um Ihre Bestellung abzuschließen."}
                 </p>
               ) : null}
               {message && <p className="checkout-message">{message}</p>}
@@ -368,13 +354,13 @@ export default function CartPage() {
                 }
               >
                 {loading
-                  ? "Tramitando..."
-                  : `Confirmar pedido con ${
+                  ? "Wird bearbeitet ..."
+                  : `Bestellung aufgeben mit ${
                       paymentMethod === "stripe"
                         ? "Stripe"
                         : paymentMethod === "bizum"
                           ? "Bizum"
-                          : "transferencia bancaria"
+                          : "Banküberweisung"
                     }`}
                 <i className="fa-solid fa-arrow-right"></i>
               </button>

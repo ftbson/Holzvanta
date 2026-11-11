@@ -14,7 +14,7 @@ export interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
+  addToCart: (item: Omit<CartItem, "quantity">) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -29,7 +29,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Laden des Warenkorbs aus dem localStorage beim Start
   useEffect(() => {
-    const savedCart = localStorage.getItem("holzvanta_cart");
+    const savedCart = localStorage.getItem("swissholz_cart");
     if (savedCart) {
       try {
         setCart(JSON.parse(savedCart));
@@ -41,23 +41,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Bei jeder Änderung im localStorage speichern
   useEffect(() => {
-    localStorage.setItem("holzvanta_cart", JSON.stringify(cart));
+    localStorage.setItem("swissholz_cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (
-    product: Omit<CartItem, "quantity">,
-    quantity: number = 1,
-  ) => {
+  const addToCart = (product: Omit<CartItem, "quantity">) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
         return prevCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item,
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
-      return [...prevCart, { ...product, quantity }];
+      return [...prevCart, { ...product, quantity: 1 }];
     });
   };
 

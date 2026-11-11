@@ -17,10 +17,10 @@ export default function AnalyticsConsent() {
     fetch("/api/analytics", { method: "POST", keepalive: true }).then(
       (response) => {
         if (!response.ok)
-          throw new Error("Besuch konnte nicht registriert werden.");
+          throw new Error("La visite n'a pas pu être enregistrée.");
       },
     ).catch((error: unknown) => {
-      console.error("Fehler beim Senden der Statistiken:", error);
+      console.error("Erreur lors de l'envoi des statistiques :", error);
     });
   }, [pathname]);
 
@@ -33,15 +33,15 @@ export default function AnalyticsConsent() {
   }
 
   return (
-    <aside className="analytics-consent" aria-label="Datenschutzinformationen">
+    <aside className="analytics-consent" aria-label="Datenschutzhinweis">
       <div>
-        <strong>Besuchsstatistiken</strong>
+        <strong>Besucherstatistik</strong>
         <p>
-          Wir zählen die aufgerufenen Seiten und erfassen Besuche nach
-          ungefährer Länderherkunft, sofern verfügbar. Wir speichern keine
-          IP-Adressen und identifizieren keine Besucher.{" "}
-          <Link href="/datenschutz">
-            Mehr Informationen zum Datenschutz
+          Wir zählen aufgerufene Seiten und fassen Besuche nach Möglichkeit
+          nach dem ungefähren Land zusammen. Wir speichern keine IP-Adressen
+          und identifizieren keine Besucher.{" "}
+          <Link href="/politique-de-confidentialite">
+            Mehr zum Datenschutz
           </Link>
         </p>
       </div>

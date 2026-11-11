@@ -5,9 +5,9 @@ import SiteFrame from "@/components/SiteFrame";
 import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
-  title: "Brennholz und Pellets in Deutschland | Kaminöfen - Holzvanta",
+  title: "Brennholz und Pellets | Holzöfen - Woodenza",
   description:
-    "Finden Sie Brennholz, Pellets, Briketts und Öfen für Ihr Zuhause. Ausgewählte Brennstoffe und Lieferung in Deutschland mit Holzvanta.",
+    "Entdecken Sie Brennholz, Pellets, Holzbriketts und Holzöfen für Ihr Zuhause. Ausgewählte Brennstoffe und Lieferung in Spanien mit Woodenza.",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
-        <link rel="shortcut icon" href="/img/logo.jpg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/img/log.png" type="image/x-icon" />
       </head>
       <body>
         <CartProvider>

@@ -1,22 +1,23 @@
-import Link from "next/link";   
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-container">
-        {/* Spalte 1: Marke, Beschreibung und soziale Netzwerke */}
+        {/* Spalte 1: Marke, Beschreibung und soziale Medien */}
         <div className="footer-col brand-col">
           <div className="footer-logo">
             <Image
-              src="/img/logo.jpg"
-              alt="Holzvanta"
-              width={50}
+              src="/img/woodenza.svg"
+              alt="Woodenza"
+              width={130}
               height={45}
             />
           </div>
           <p className="footer-description">
-            Ausgewähltes Brennholz und Brennstoffe für effizientes und verantwortungsvolles Heizen.
+            Ausgewähltes Brennholz und Brennstoffe für effizientes und
+            verantwortungsbewusstes Heizen.
           </p>
           <div className="social-links">
             <a href="#" aria-label="Facebook" className="social-icon">
@@ -42,7 +43,7 @@ export default function Footer() {
               <Link href="/boutique">Holzbriketts</Link>
             </li>
             <li>
-              <Link href="/boutique">Gepresstes Brennholz</Link>
+              <Link href="/boutique">Holzpresslinge</Link>
             </li>
             <li>
               <Link href="/boutique">Kaminöfen</Link>
@@ -55,36 +56,36 @@ export default function Footer() {
           <h4 className="footer-heading">INFORMATIONEN</h4>
           <ul className="footer-links-list">
             <li>
-              <Link href="/versand-und-ruecksendung">Versand und Rücksendung</Link>
+              <Link href="/livraison-et-retours">Versand und Rücksendungen</Link>
             </li>
             <li>
-              <Link href="/kontakt">Zahlungsinformationen</Link>
+              <Link href="/contact">Fragen zur Zahlung</Link>
             </li>
             <li>
-              <Link href="/agb">
+              <Link href="/termes-et-conditions">
                 Allgemeine Geschäftsbedingungen
               </Link>
             </li>
             <li>
-              <Link href="/datenschutz">
-                Datenschutzbestimmungen
+              <Link href="/politique-de-confidentialite">
+                Datenschutzerklärung
               </Link>
             </li>
             <li>
-              <Link href="/impressum">Impressum</Link>
+              <Link href="/mentions-legales">Impressum</Link>
             </li>
           </ul>
         </div>
 
-        {/* Spalte 4: Hilfe */}
+        {/* Spalte 4: Kundenservice */}
         <div className="footer-col">
-          <h4 className="footer-heading">HILFE</h4>
+          <h4 className="footer-heading">KUNDENSERVICE</h4>
           <ul className="footer-links-list">
             <li>
-              <Link href="/kontakt">Häufig gestellte Fragen</Link>
+              <Link href="/contact">Häufige Fragen</Link>
             </li>
             <li>
-              <Link href="/kontakt">Kontakt</Link>
+              <Link href="/contact">Kontakt</Link>
             </li>
           </ul>
         </div>
@@ -95,25 +96,25 @@ export default function Footer() {
           <ul className="contact-info-list">
             <li>
               <i className="fa-solid fa-location-dot"></i>
-              <span> Hauptstraße 45, 10117 Berlin, DEUTSCHLAND</span>
+              <span> Avenida de la Constitución, 344 08860 Castelldefels, Spanien</span>
             </li>
             <li>
               <i className="fa-solid fa-phone"></i>
-              <a href="tel:+493012345678">+49 30 123 456 78</a>
+              <a href="tel:+34727745478">+34 727 74 54 78</a>
             </li>
             <li>
               <i className="fa-solid fa-envelope"></i>
-              <a href="mailto:info@holzvanta.de">info@holzvanta.de</a>
+              <a href="mailto:info@woodenza.es">info@woodenza.es</a>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Fußzeile unten: Copyright und Zahlungsmethoden */}
+      {/* Fußzeile: Urheberrecht und Zahlungsmethoden */}
       <div className="footer-bottom-bar">
         <div className="footer-bottom-container">
           <p className="copyright-text">
-            © 2026 Holzvanta. Alle Rechte vorbehalten.
+            © 2026 Woodenza. Alle Rechte vorbehalten.
           </p>
           <div className="payment-icons">
             <span className="payment-card">VISA</span>

@@ -16,63 +16,63 @@ const testimonials: Testimonial[] = [
     id: 1,
     rating: 5,
     quote:
-      "« Die Holzbriketts von Holzvanta brennen extrem gleichmäßig und geben eine herrliche, langanhaltende Wärme ab. Absolut empfehlenswert! »",
+      "„Die besten Holzbriketts, die ich bisher ausprobiert habe. Sie brennen lange und hinterlassen nur wenig Asche.“",
     initials: "M",
-    name: "Matthias Becker",
-    city: "München",
+    name: "Marco Bernasconi",
+    city: "Lugano",
   },
   {
     id: 2,
     rating: 5,
     quote:
-      "« Pünktliche Lieferung direkt bis vor die Haustür hier in Berlin. Das Kaminholz ist trocken und sofort einsatzbereit. »",
-    initials: "C",
-    name: "Claudia Weber",
-    city: "Berlin",
+      "„Trockenes Brennholz, pünktliche Lieferung und ein erstklassiger Service. Ich bestelle jedes Jahr.“",
+    initials: "A",
+    name: "Andrea Meier",
+    city: "Zürich",
   },
   {
     id: 3,
     rating: 5,
     quote:
-      "« Hervorragende Pellet-Qualität mit sehr geringer Aschebildung. Der Bestellprozess und der Kundenservice waren erstklassig. »",
-    initials: "T",
-    name: "Tobias Wagner",
-    city: "Hamburg",
+      "„Die Pellets verbrennen sehr sauber. Das Preis-Leistungs-Verhältnis ist ausgezeichnet.“",
+    initials: "L",
+    name: "Luc Rochat",
+    city: "Lausanne",
   },
   {
     id: 4,
     rating: 5,
     quote:
-      "« Unser neuer Kaminofen kam sicher verpackt an und funktioniert perfekt. Vielen Dank an das gesamte Holzvanta-Team für die Beratung! »",
+      "„Die telefonische Beratung war ausgezeichnet. Mein neuer Kaminofen kam in einwandfreiem Zustand an.“",
     initials: "S",
-    name: "Stefanie Hoffmann",
-    city: "Köln",
+    name: "Sandra Bühler",
+    city: "Bern",
   },
 ];
 
 export default function Testimonials() {
-  const [activeDot, setActiveDot] = useState(2); // Dritter Indikator standardmäßig aktiv
+  const [activeDot, setActiveDot] = useState(2); // Tercer indicador activo de forma predeterminada
 
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
-        {/* Titel */}
+        {/* Título */}
         <div className="testimonials-header">
-          <h2 className="testimonials-title">Das sagen unsere Kunden über Holzvanta</h2>
+          <h2 className="testimonials-title">Das sagen unsere Kunden über Woodenza</h2>
         </div>
 
-        {/* Bewertungen */}
+        {/* Opiniones */}
         <div className="testimonials-grid">
           {testimonials.slice(0, 3).map((item) => (
             <div key={item.id} className="testimonial-card">
-              {/* Sternebewertung */}
+              {/* Valoración por estrellas */}
               <div className="testimonial-stars">
                 {[...Array(item.rating)].map((_, i) => (
                   <i key={i} className="fa-solid fa-star"></i>
                 ))}
               </div>
 
-              {/* Kundenstimme */}
+              {/* Opinión del cliente */}
               <p className="testimonial-quote">{item.quote}</p>
 
               {/* Autor */}
@@ -87,7 +87,7 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Navigationsindikatoren */}
+        {/* Indicadores de navegación */}
         <div className="testimonials-pagination">
           {[0, 1, 2, 3].map((index) => (
             <button
@@ -96,7 +96,7 @@ export default function Testimonials() {
                 activeDot === index ? "active" : ""
               }`}
               onClick={() => setActiveDot(index)}
-              aria-label={`Zu Folie ${index + 1} wechseln`}
+              aria-label={`Zu Folie ${index + 1}`}
             />
           ))}
         </div>

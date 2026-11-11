@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const bankDetails = await getBankTransferSettings();
     if (!bankDetails.enabled || !bankDetails.accountName || !bankDetails.iban) {
       return NextResponse.json(
-        { error: "La transferencia bancaria no está disponible en este momento." },
+        { error: "Die Banküberweisung ist derzeit nicht verfügbar." },
         { status: 503 },
       );
     }
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       : [];
     if (!customer?.email || validItems.length === 0)
       return NextResponse.json(
-        { error: "Los datos no son válidos." },
+        { error: "Die Angaben sind ungültig." },
         { status: 400 },
       );
     const subtotal = validItems.reduce(
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error en la transferencia bancaria:", error);
     return NextResponse.json(
-      { error: "No se ha podido registrar el pedido." },
+      { error: "Die Bestellung konnte nicht registriert werden." },
       { status: 500 },
     );
   }

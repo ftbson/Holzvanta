@@ -18,61 +18,60 @@ export default function Home() {
 
   return (
     <main>
-      {/* 1. Haupt-Karussell / Hero */}
+      {/* 1. Hauptkarussell */}
       <Hero />
 
       {/* 2. Kategorien */}
 
-      {/* 3. Bestseller-Produkte */}
+      {/* 3. Bestseller */}
       <BestSellers />
 
       <Poele />
       <Categories />
 
-      {/* 4. Warum Holzvanta */}
+      {/* 4. Warum Woodenza */}
       <WhyUs />
 
-      {/* 5. Saisonale Aktion */}
+      {/* 5. Saisonangebot */}
 
       <section className="promo-banner-section">
         <div className="promo-banner-container">
           <div className="promo-banner-content">
-            {/* Rabatt */}
+            {/* Descuento */}
             <div className="promo-badge">
               <i className="fa-solid fa-bolt"></i>
               <span>-50%</span>
             </div>
 
-            {/* Titel */}
+            {/* Título */}
             <h2 className="promo-title">
-              Rüsten Sie Ihr Zuhause mit hochwertiger Heizung aus und sparen Sie bis zu 50 %
+              Heizen Sie Ihr Zuhause hochwertig und sparen Sie bis zu 50 %
             </h2>
 
-            {/* Untertitel */}
+            {/* Subtítulo */}
             <p className="promo-subtitle">
-              Saisonale Aktion gültig solange der Vorrat reicht.
+              Saisonangebot, solange der Vorrat reicht.
             </p>
           </div>
 
-          {/* Call to Action */}
+          {/* Llamada a la acción */}
           <Link href="/boutique" className="promo-btn">
             <span>Angebote entdecken</span>
             <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>
       </section>
-
-      {/* 6. Bewertungen */}
+      {/* 6. Kundenstimmen */}
       <Testimonials />
 
-      {/* 7. Nach oben */}
+      {/* 7. Zurück nach oben */}
 
       <section className="scroll-top-section">
-        {/* Fester Button zum Nach-oben-Scrollen */}
+        {/* Schaltfläche zum Zurückkehren nach oben */}
         <button
           onClick={scrollToTop}
           className="scroll-top-btn-fixed"
-          aria-label="Nach oben scrollen"
+          aria-label="Zum Seitenanfang"
         >
           <i className="fa-solid fa-arrow-up"></i>
           {/* <span>Nach oben</span> */}

@@ -16,8 +16,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Startseite", path: "/" },
-    { name: "Über Holzvanta", path: "/about" },
-    { name: "Katalog", path: "/boutique" },
+    { name: "Über uns", path: "/a-propos" },
+    { name: "Sortiment", path: "/boutique" },
     { name: "Produkte", path: "/boutique" },
     { name: "Hilfe & Kontakt", path: "/contact" },
   ];
@@ -28,9 +28,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="navbar-logo">
           <Image
-            src="/img/logo.jpg"
-            alt="Holzvanta"
-            width={50}
+            src="/img/woodenza.svg"
+            alt="Woodenza"
+            width={100}
             height={45}
             priority
           />
@@ -56,7 +56,7 @@ export default function Navbar() {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
 
-          {/* Warenkorb mit Zähler */}
+          {/* Warenkorb mit Artikelanzahl */}
           <Link
             href="/panier"
             className="icon-btn cart-btn"
@@ -79,14 +79,14 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobiles Menü Overlay */}
+      {/* Mobiles Menü */}
       {isMenuOpen && (
         <div className="mobile-menu-overlay">
           <div className="mobile-menu">
             <div className="mobile-menu-header">
               <Image
                 src="/img/woodenza.svg"
-                alt="Holzvanta"
+                alt="Woodenza"
                 width={100}
                 height={35}
               />

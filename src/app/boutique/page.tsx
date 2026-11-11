@@ -1,9 +1,9 @@
 import ShopGrid from "@/components/ShopGrid";
 
 export const metadata = {
-  title: "Comprar leña, pellets y estufas en Deutschland | Woodenza",
+  title: "Brennholz, Pellets und Öfen kaufen | Woodenza",
   description:
-    "Consulta el catálogo Woodenza: leña, pellets, briquetas y estufas de leña con entrega en Deutschland.",
+    "Entdecken Sie das Woodenza-Sortiment: Brennholz, Pellets, Holzbriketts und Kaminöfen mit Lieferung in Spanien.",
 };
 
 export default function BoutiquePage() {

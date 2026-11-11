@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ProductDetails from "@/components/ProductDetails";
-import { findProductBySlug } from "@/data/products";
+import { productsData } from "@/data/products";
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;
@@ -11,7 +11,7 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { id } = await params;
-  const product = findProductBySlug(id);
+  const product = productsData.find((item) => item.id === id);
 
   return product
     ? {
@@ -19,15 +19,15 @@ export async function generateMetadata({
         description: product.description,
       }
     : {
-        title: "Producto no disponible | Woodenza",
+        title: "Produkt nicht verfügbar | Woodenza",
         description:
-          "No encontramos esta referencia en el catálogo actual de Woodenza. Explora otras opciones de leña, pellets y calefacción.",
+          "Dieser Artikel ist derzeit nicht im Woodenza-Sortiment verfügbar. Entdecken Sie weitere Angebote an Brennholz, Pellets und Heizlösungen.",
       };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params;
-  const product = findProductBySlug(id);
+  const product = productsData.find((item) => item.id === id);
 
   if (!product) {
     notFound();

@@ -12,26 +12,27 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: "fa-solid fa-truck-fast",
-    title: "Haustürlieferung",
+    title: "Lieferung nach Hause",
     description:
-      "Erhalten Sie Ihre Bestellung in Deutschland innerhalb von 24 bis 72 Stunden.",
+      "Erhalten Sie Ihre Bestellung in Spanien voraussichtlich innerhalb von 24 bis 72 Stunden.",
     active: true,
   },
   {
     icon: "fa-solid fa-award",
     title: "Ausgewählte Brennstoffe",
-    description: "Kammergetrocknetes und zertifiziertes Brennholz für Deutschland.",
+    description: "Kammergetrocknetes und zertifiziertes Brennholz.",
   },
   {
     icon: "fa-solid fa-shield-halved",
-    title: "Sichere Zahlungsoptionen",
+    title: "Sichere Zahlungsmethoden",
     description:
-      "Wählen Sie während des Bezahlvorgangs zwischen Kreditkarte, PayPal oder Banküberweisung.",
+      "Wählen Sie beim Bezahlen zwischen Kreditkarte, Bizum und Banküberweisung.",
   },
   {
     icon: "fa-solid fa-headset",
     title: "Persönliche Beratung",
-    description: "Wir beantworten Ihre Fragen und beraten Sie von Montag bis Samstag.",
+    description:
+      "Wir beantworten Ihre Fragen und beraten Sie von Montag bis Samstag.",
   },
 ];
 
@@ -43,25 +44,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  {
-    id: "clients",
-    target: 15000,
-    suffix: "+",
-    label: "KUNDEN, DIE UNS VERTRAUEN",
-  },
-  {
-    id: "steres",
-    target: 25000,
-    suffix: "",
-    label: "RAUMMETER BRENNHOLZ GELIEFERT",
-  },
-  { id: "experience", target: 12, suffix: "", label: "JAHRE ERFAHRUNG IN DER BRANCHE" },
-  {
-    id: "cantons",
-    target: 16,
-    suffix: "",
-    label: "BUNDESLÄNDER IN Deutschland BELIEFERT",
-  },
+  { id: "clients", target: 15000, suffix: "+", label: "KUNDEN VERTRAUEN UNS" },
+  { id: "steres", target: 25000, suffix: "", label: "GELIEFERTE RAUMMETER BRENNHOLZ" },
+  { id: "experience", target: 12, suffix: "", label: "JAHRE BRANCHENERFAHRUNG" },
+  { id: "cantons", target: 26, suffix: "", label: "BELIEFERTE REGIONEN IN SPANIEN" },
 ];
 
 export default function WhyUs() {
@@ -106,7 +92,7 @@ export default function WhyUs() {
         clients: Math.floor(progress * 15000),
         steres: Math.floor(progress * 25000),
         experience: Math.floor(progress * 12),
-        cantons: Math.floor(progress * 16),
+        cantons: Math.floor(progress * 26),
       });
 
       if (step >= steps) {
@@ -115,7 +101,7 @@ export default function WhyUs() {
           clients: 15000,
           steres: 25000,
           experience: 12,
-          cantons: 16,
+          cantons: 26,
         });
       }
     }, intervalTime);
@@ -124,16 +110,16 @@ export default function WhyUs() {
   return (
     <section className="whyus-section" ref={sectionRef}>
       <div className="whyus-container">
-        {/* Kopfbereich */}
+        {/* En-tête */}
         <div className="whyus-header">
-          <h2 className="whyus-title">Holzheizung mit Holzvanta</h2>
+          <h2 className="whyus-title">Heizen mit Holz von Woodenza</h2>
           <p className="whyus-subtitle">
-            Qualität, Service und ein einfacher Kaufprozess – von der Auswahl bis zur Lieferung.
+            Qualität, Service und ein einfacher Einkauf – von der Auswahl bis zur Lieferung.
           </p>
           <div className="whyus-line"></div>
         </div>
 
-        {/* Vorteile */}
+        {/* Ventajas */}
         <div className="features-grid">
           {features.map((feature, idx) => (
             <div key={idx} className="feature-card">
@@ -150,7 +136,7 @@ export default function WhyUs() {
           ))}
         </div>
 
-        {/* Statistik */}
+        {/* Estadísticas */}
         <div className="stats-banner">
           {stats.map((stat) => (
             <div key={stat.id} className="stat-item">
