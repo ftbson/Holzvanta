@@ -16,7 +16,7 @@ const cardsData: FeatureCard[] = [
   {
     id: 1,
     title: "98 % Kundenzufriedenheit",
-    subtitle: "Qualität und Service in Spanien",
+    subtitle: "Qualität und Service in Deutschland",
     image: "/img/hero-1.jpeg",
     badgeText: "Restfeuchte < 18 %",
   },
@@ -32,7 +32,7 @@ const cardsData: FeatureCard[] = [
     title: "Schneller Versand",
     subtitle: "Direktlieferung in 24 bis 72 Stunden",
     image: "/img/hero-3.jpeg",
-    badgeText: "Lieferung in ganz Spanien",
+    badgeText: "Lieferung in ganz Deutschland",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function Hero() {
               <span className="avatar">📦</span>
             </div>
             <span className="reviews-text">
-              Mehr als 1.200 zufriedene Kunden in Spanien
+              Mehr als 1.200 zufriedene Kunden in Deutschland
             </span>
           </div>
 

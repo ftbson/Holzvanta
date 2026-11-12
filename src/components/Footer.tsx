@@ -56,7 +56,9 @@ export default function Footer() {
           <h4 className="footer-heading">INFORMATIONEN</h4>
           <ul className="footer-links-list">
             <li>
-              <Link href="/livraison-et-retours">Versand und Rücksendungen</Link>
+              <Link href="/livraison-et-retours">
+                Versand und Rücksendungen
+              </Link>
             </li>
             <li>
               <Link href="/contact">Fragen zur Zahlung</Link>
@@ -91,12 +93,15 @@ export default function Footer() {
         </div>
 
         {/* Spalte 5: Kontakt */}
-        <div className="footer-col contact-col"> 
+        <div className="footer-col contact-col">
           <h4 className="footer-heading">KONTAKT</h4>
           <ul className="contact-info-list">
             <li>
               <i className="fa-solid fa-location-dot"></i>
-              <span> Avenida de la Constitución, 344 08860 Castelldefels, Spanien</span>
+              <span>
+                {" "}
+                Avenida de la Constitución, 344 08860 Castelldefels, Deutschland
+              </span>
             </li>
             <li>
               <i className="fa-solid fa-phone"></i>

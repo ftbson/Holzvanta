@@ -14,7 +14,7 @@ const features: Feature[] = [
     icon: "fa-solid fa-truck-fast",
     title: "Lieferung nach Hause",
     description:
-      "Erhalten Sie Ihre Bestellung in Spanien voraussichtlich innerhalb von 24 bis 72 Stunden.",
+      "Erhalten Sie Ihre Bestellung in Deutschland voraussichtlich innerhalb von 24 bis 72 Stunden.",
     active: true,
   },
   {
@@ -45,9 +45,24 @@ interface Stat {
 
 const stats: Stat[] = [
   { id: "clients", target: 15000, suffix: "+", label: "KUNDEN VERTRAUEN UNS" },
-  { id: "steres", target: 25000, suffix: "", label: "GELIEFERTE RAUMMETER BRENNHOLZ" },
-  { id: "experience", target: 12, suffix: "", label: "JAHRE BRANCHENERFAHRUNG" },
-  { id: "cantons", target: 26, suffix: "", label: "BELIEFERTE REGIONEN IN SPANIEN" },
+  {
+    id: "steres",
+    target: 25000,
+    suffix: "",
+    label: "GELIEFERTE RAUMMETER BRENNHOLZ",
+  },
+  {
+    id: "experience",
+    target: 12,
+    suffix: "",
+    label: "JAHRE BRANCHENERFAHRUNG",
+  },
+  {
+    id: "cantons",
+    target: 26,
+    suffix: "",
+    label: "BELIEFERTE REGIONEN IN Deutschland",
+  },
 ];
 
 export default function WhyUs() {
@@ -114,7 +129,8 @@ export default function WhyUs() {
         <div className="whyus-header">
           <h2 className="whyus-title">Heizen mit Holz von Woodenza</h2>
           <p className="whyus-subtitle">
-            Qualität, Service und ein einfacher Einkauf – von der Auswahl bis zur Lieferung.
+            Qualität, Service und ein einfacher Einkauf – von der Auswahl bis
+            zur Lieferung.
           </p>
           <div className="whyus-line"></div>
         </div>

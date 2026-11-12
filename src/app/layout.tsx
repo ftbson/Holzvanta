@@ -7,7 +7,7 @@ import { CartProvider } from "@/context/CartContext";
 export const metadata: Metadata = {
   title: "Brennholz und Pellets | Holzöfen - Woodenza",
   description:
-    "Entdecken Sie Brennholz, Pellets, Holzbriketts und Holzöfen für Ihr Zuhause. Ausgewählte Brennstoffe und Lieferung in Spanien mit Woodenza.",
+    "Entdecken Sie Brennholz, Pellets, Holzbriketts und Holzöfen für Ihr Zuhause. Ausgewählte Brennstoffe und Lieferung in Deutschland mit Woodenza.",
 };
 
 export default function RootLayout({

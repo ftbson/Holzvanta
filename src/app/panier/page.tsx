@@ -33,7 +33,7 @@ type PaymentMethod = "stripe" | "bizum" | "bank_transfer";
 const emptyCustomer: Customer = {
   firstName: "",
   lastName: "",
-  country: "Spanien",
+  country: "Deutschland",
   streetAddress: "",
   whatsapp: "",
   email: "",
@@ -55,14 +55,18 @@ export default function CartPage() {
   useEffect(() => {
     fetch("/api/bizum")
       .then(async (response) => {
-        if (!response.ok) throw new Error("Die Verfügbarkeit von Bizum konnte nicht abgerufen werden.");
+        if (!response.ok)
+          throw new Error(
+            "Die Verfügbarkeit von Bizum konnte nicht abgerufen werden.",
+          );
         setBizumDetails(await response.json());
       })
       .catch(() => setBizumDetails({ enabled: false }));
 
     fetch("/api/bank-transfer")
       .then(async (response) => {
-        if (!response.ok) throw new Error("Die Bankverbindung konnte nicht abgerufen werden.");
+        if (!response.ok)
+          throw new Error("Die Bankverbindung konnte nicht abgerufen werden.");
         setBankTransferDetails(await response.json());
       })
       .catch(() => setBankTransferDetails({ enabled: false }));
@@ -91,10 +95,14 @@ export default function CartPage() {
       });
       const data = await response.json();
       if (!response.ok)
-        throw new Error(data.error || "Ihre Bestellung konnte nicht abgeschlossen werden.");
+        throw new Error(
+          data.error || "Ihre Bestellung konnte nicht abgeschlossen werden.",
+        );
       if (paymentMethod === "stripe") {
         if (!data.url)
-          throw new Error("Der Link zur Fortsetzung der Zahlung wurde nicht empfangen.");
+          throw new Error(
+            "Der Link zur Fortsetzung der Zahlung wurde nicht empfangen.",
+          );
         window.location.assign(data.url);
         return;
       }
@@ -119,7 +127,9 @@ export default function CartPage() {
       clearCart();
     } catch (error) {
       setMessage(
-        error instanceof Error ? error.message : "Ihre Bestellung konnte nicht abgeschlossen werden.",
+        error instanceof Error
+          ? error.message
+          : "Ihre Bestellung konnte nicht abgeschlossen werden.",
       );
     } finally {
       setLoading(false);
@@ -135,7 +145,10 @@ export default function CartPage() {
             {message && <p className="checkout-message">{message}</p>}
             <i className="fa-solid fa-basket-shopping empty-icon"></i>
             <h2>Ihr Warenkorb ist noch leer</h2>
-            <p>Entdecken Sie unser Sortiment an Brennholz, Pellets und Öfen für Ihr Zuhause.</p>
+            <p>
+              Entdecken Sie unser Sortiment an Brennholz, Pellets und Öfen für
+              Ihr Zuhause.
+            </p>
             <Link href="/boutique" className="btn-primary-cart">
               Zum Sortiment
             </Link>
@@ -283,7 +296,8 @@ export default function CartPage() {
                     onChange={() => setPaymentMethod("bank_transfer")}
                   />
                   Banküberweisung
-                  {!bankTransferDetails?.enabled && " (derzeit nicht verfügbar)"}
+                  {!bankTransferDetails?.enabled &&
+                    " (derzeit nicht verfügbar)"}
                 </label>
               </div>
               {paymentMethod === "bizum" && bizumDetails?.enabled ? (
@@ -332,7 +346,8 @@ export default function CartPage() {
                   )}
                   <p className="bank-transfer-reference">
                     Geben Sie bei der Überweisung die Bestellnummer an. Ihre
-                    Bestellung wird bearbeitet, sobald die Zahlung eingegangen ist.
+                    Bestellung wird bearbeitet, sobald die Zahlung eingegangen
+                    ist.
                   </p>
                 </div>
               ) : paymentMethod === "bank_transfer" ? (
