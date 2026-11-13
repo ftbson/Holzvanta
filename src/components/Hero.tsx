@@ -22,7 +22,7 @@ const cardsData: FeatureCard[] = [
   },
   {
     id: 2,
-    title: "Premium-Brennholz",
+    title: "Premium-holzvanta",
     subtitle: "Kammergetrocknet für höchste Effizienz",
     image: "/img/hero-2.jpeg",
     badgeText: "Alta Eficiencia",
@@ -88,8 +88,8 @@ export default function Hero() {
 
           {/* Description */}
           <p className="hero-main-description">
-            WOODENZA bietet Ihnen hochwertiges, kammergetrocknetes und sofort
-            einsatzbereites Brennholz und Pellets. Schnell zu Ihnen nach Hause
+            holzvanta bietet Ihnen hochwertiges, kammergetrocknetes und sofort
+            einsatzbereites holzvanta und Pellets. Schnell zu Ihnen nach Hause
             geliefert.
           </p>
 

@@ -20,7 +20,7 @@ const features: Feature[] = [
   {
     icon: "fa-solid fa-award",
     title: "Ausgewählte Brennstoffe",
-    description: "Kammergetrocknetes und zertifiziertes Brennholz.",
+    description: "Kammergetrocknetes und zertifiziertes holzvanta.",
   },
   {
     icon: "fa-solid fa-shield-halved",
@@ -49,7 +49,7 @@ const stats: Stat[] = [
     id: "steres",
     target: 25000,
     suffix: "",
-    label: "GELIEFERTE RAUMMETER BRENNHOLZ",
+    label: "GELIEFERTE RAUMMETER holzvanta",
   },
   {
     id: "experience",
@@ -127,7 +127,7 @@ export default function WhyUs() {
       <div className="whyus-container">
         {/* En-tête */}
         <div className="whyus-header">
-          <h2 className="whyus-title">Heizen mit Holz von Woodenza</h2>
+          <h2 className="whyus-title">Heizen mit Holz von holzvanta</h2>
           <p className="whyus-subtitle">
             Qualität, Service und ein einfacher Einkauf – von der Auswahl bis
             zur Lieferung.

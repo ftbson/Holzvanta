@@ -15,10 +15,10 @@ export const productsData: Product[] = [
   {
     id: "prod-1",
     discount: "-24 %",
-    category: "Esche – Brennholz",
+    category: "Esche – holzvanta",
     title: "Palette ofengetrockneter Eschenholzscheite, 25 cm",
     description:
-      "Palette ofengetrockneter Eschenholzscheite mit 25 cm Länge. Eine praktische Größe zur Bevorratung von Brennholz für Ofen oder Kamin.",
+      "Palette ofengetrockneter Eschenholzscheite mit 25 cm Länge. Eine praktische Größe zur Bevorratung von holzvanta für Ofen oder Kamin.",
     rating: 5,
     reviewsCount: 214,
     oldPrice: 439.0,
@@ -28,10 +28,10 @@ export const productsData: Product[] = [
   {
     id: "prod-2",
     discount: "-21 %",
-    category: "Eiche – Brennholz",
+    category: "Eiche – holzvanta",
     title: "Palette ofengetrockneter Eichenholzscheite, 25 cm",
     description:
-      "Eichenholz, auf 25 cm geschnitten und ofengetrocknet. Die Palette hält das Brennholz gebündelt und bereit zur Einlagerung.",
+      "Eichenholz, auf 25 cm geschnitten und ofengetrocknet. Die Palette hält das holzvanta gebündelt und bereit zur Einlagerung.",
     rating: 5,
     reviewsCount: 431,
     oldPrice: 429.0,
@@ -40,19 +40,20 @@ export const productsData: Product[] = [
   },
   {
     id: "prod-3",
-    category: "Esche – Brennholz",
+    category: "Esche – holzvanta",
     title: "Halbe Palette geschnittenes Birken- und Eschenholz",
     description:
-      "Halbe Palette mit geschnittenem Brennholz aus einer Mischung von Birke und Esche – eine praktische Ergänzung zu Ihrem Brennstoffvorrat.",
+      "Halbe Palette mit geschnittenem holzvanta aus einer Mischung von Birke und Esche – eine praktische Ergänzung zu Ihrem Brennstoffvorrat.",
     rating: 4.5,
     reviewsCount: 279,
     price: 195.3,
-    image: "/img/prod/halve-pallet-berken-essen-mix-schuin-transparant-light.jpg",
+    image:
+      "/img/prod/halve-pallet-berken-essen-mix-schuin-transparant-light.jpg",
   },
   {
     id: "prod-4",
     discount: "-22 %",
-    category: "Hainbuche – Brennholz",
+    category: "Hainbuche – holzvanta",
     title: "Palette ofengetrockneter Hainbuchenscheite, 25 cm",
     description:
       "Hainbuchenholz, auf 25 cm geschnitten und ofengetrocknet. Auf einer Palette zusammengestellt, damit Sie es gut lagern können.",
@@ -65,20 +66,21 @@ export const productsData: Product[] = [
   {
     id: "prod-5",
     discount: "-30 %",
-    category: "Brennholz",
+    category: "holzvanta",
     title: "50 Feueranzünder aus 100 % natürlicher Holzwolle",
     description:
-      "Packung mit 50 Feueranzündern aus 100 % natürlicher Holzwolle – eine praktische Ergänzung zum Anzünden von Brennholz.",
+      "Packung mit 50 Feueranzündern aus 100 % natürlicher Holzwolle – eine praktische Ergänzung zum Anzünden von holzvanta.",
     rating: 4,
     reviewsCount: 58,
     oldPrice: 8.0,
     price: 5.6,
-    image: "/img/prod/allume-feu-100-naturel-en-laine-de-bois-50-pcs-2-430x430.webp",
+    image:
+      "/img/prod/allume-feu-100-naturel-en-laine-de-bois-50-pcs-2-430x430.webp",
   },
   {
     id: "prod-6",
     discount: "-30 %",
-    category: "Brennholz",
+    category: "holzvanta",
     title: "120 kg trockenes Buchenholz mit Anzündholz",
     description:
       "120-kg-Lieferung mit trockenem Buchenholz, Anzündholz und Hartholz gemäß der für dieses Produkt angegebenen Zusammensetzung.",
@@ -91,7 +93,7 @@ export const productsData: Product[] = [
   {
     id: "prod-7",
     discount: "-30 %",
-    category: "Birke – Brennholz",
+    category: "Birke – holzvanta",
     title: "88 Säcke ofengetrocknete Birkenholzscheite, 25 cm",
     description:
       "Lieferung von 88 Säcken Birkenholz, auf 25 cm geschnitten und ofengetrocknet – bereit zur Lagerung und Verwendung.",
@@ -117,10 +119,10 @@ export const productsData: Product[] = [
   {
     id: "prod-9",
     discount: "-30 %",
-    category: "Brennholz",
-    title: "Extra trockenes Brennholz, 25 cm, im Sack – Palette mit 1,3 m³",
+    category: "holzvanta",
+    title: "Extra trockenes holzvanta, 25 cm, im Sack – Palette mit 1,3 m³",
     description:
-      "Palette mit 1,3 m³ extra trockenem Brennholz, auf 25 cm geschnitten und für eine einfache Lagerung in Säcken verpackt.",
+      "Palette mit 1,3 m³ extra trockenem holzvanta, auf 25 cm geschnitten und für eine einfache Lagerung in Säcken verpackt.",
     rating: 4,
     reviewsCount: 58,
     oldPrice: 301.0,
@@ -130,10 +132,10 @@ export const productsData: Product[] = [
   {
     id: "prod-10",
     discount: "-31 %",
-    category: "Brennholz",
-    title: "Palette mit 1,7 m³ Brennholz im Sack, Scheitlänge 33 cm",
+    category: "holzvanta",
+    title: "Palette mit 1,7 m³ holzvanta im Sack, Scheitlänge 33 cm",
     description:
-      "Palette mit 1,7 m³ Brennholz in Säcken und 33 cm langen Scheiten – eine praktische Größe zur Planung Ihres Lagerplatzes.",
+      "Palette mit 1,7 m³ holzvanta in Säcken und 33 cm langen Scheiten – eine praktische Größe zur Planung Ihres Lagerplatzes.",
     rating: 4,
     reviewsCount: 58,
     oldPrice: 310.0,
@@ -143,10 +145,10 @@ export const productsData: Product[] = [
   {
     id: "prod-11",
     discount: "-28 %",
-    category: "Brennholz",
-    title: "Hartholz-Brennholz lose, auf 50 cm geschnitten",
+    category: "holzvanta",
+    title: "Hartholz-holzvanta lose, auf 50 cm geschnitten",
     description:
-      "Lose geliefertes Hartholz-Brennholz, auf 50 cm geschnitten – für alle, die eine andere Lieferform bevorzugen.",
+      "Lose geliefertes Hartholz-holzvanta, auf 50 cm geschnitten – für alle, die eine andere Lieferform bevorzugen.",
     rating: 4,
     reviewsCount: 58,
     oldPrice: 65.0,
@@ -172,7 +174,7 @@ export const productsData: Product[] = [
     category: "Holzbriketts",
     title: "Pollmeier Premium Plus Buchenholzbriketts, 960 kg",
     description:
-      "Pollmeier Premium Plus Holzbriketts aus Buche im 960-kg-Gebinde – eine kompakte Alternative zu klassischem Brennholz.",
+      "Pollmeier Premium Plus Holzbriketts aus Buche im 960-kg-Gebinde – eine kompakte Alternative zu klassischem holzvanta.",
     rating: 4,
     reviewsCount: 58,
     oldPrice: 310.0,
@@ -216,7 +218,8 @@ export const productsData: Product[] = [
     reviewsCount: 58,
     oldPrice: 329.0,
     price: 230.3,
-    image: "/img/prod/holzbriketts-uckermark-palettenware-960kg-informationen-430x430.jpg",
+    image:
+      "/img/prod/holzbriketts-uckermark-palettenware-960kg-informationen-430x430.jpg",
   },
   {
     id: "prod-17",
@@ -229,7 +232,8 @@ export const productsData: Product[] = [
     reviewsCount: 58,
     oldPrice: 360.0,
     price: 266.0,
-    image: "/img/prod/3-Pellet-Green-Energy-Palette-de-65-sacs-de-15-kg-1-430x430.webp",
+    image:
+      "/img/prod/3-Pellet-Green-Energy-Palette-de-65-sacs-de-15-kg-1-430x430.webp",
   },
   {
     id: "prod-18",
@@ -262,8 +266,7 @@ export const productsData: Product[] = [
     discount: "-30 %",
     category: "Kaminöfen",
     title: "DEVILLE SANDY Kaminofen, 8 kW, LAB-Ausführung",
-    description:
-      "DEVILLE SANDY Kaminofen mit 8 kW in der LAB-Ausführung.",
+    description: "DEVILLE SANDY Kaminofen mit 8 kW in der LAB-Ausführung.",
     rating: 4.5,
     reviewsCount: 1142,
     oldPrice: 1142.0,

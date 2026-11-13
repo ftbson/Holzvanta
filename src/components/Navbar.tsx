@@ -28,10 +28,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="navbar-logo">
           <Image
-            src="/img/woodenza.svg"
-            alt="Woodenza"
+            src="/img/logo1.jpg"
+            alt="holzvanta"
             width={100}
-            height={45}
+            height={50}
             priority
           />
         </Link>
@@ -85,8 +85,8 @@ export default function Navbar() {
           <div className="mobile-menu">
             <div className="mobile-menu-header">
               <Image
-                src="/img/woodenza.svg"
-                alt="Woodenza"
+                src="/img/holzvanta.svg"
+                alt="holzvanta"
                 width={100}
                 height={35}
               />

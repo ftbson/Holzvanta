@@ -29,7 +29,7 @@ export default function Home() {
       <Poele />
       <Categories />
 
-      {/* 4. Warum Woodenza */}
+      {/* 4. Warum holzvanta */}
       <WhyUs />
 
       {/* 5. Saisonangebot */}

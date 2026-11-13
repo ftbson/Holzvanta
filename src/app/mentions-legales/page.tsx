@@ -12,12 +12,12 @@ export default function LegalNoticePage() {
         <section className="legal-section">
           <h2>Anbieter und Verantwortlicher</h2>
           <p>
-            Woodenza
+            holzvanta
             <br />
             Adresse: Avenida de la Constitución, 344, 08860 Castelldefels,
             Deutschland
             <br />
-            E-Mail: info@woodenza.es
+            E-Mail: info@holzvanta.es
             <br />
             Telefon: +34 727 74 54 78
           </p>
@@ -46,10 +46,10 @@ export default function LegalNoticePage() {
         <section className="legal-section">
           <h2>Verfügbarkeit und Haftung</h2>
           <p>
-            Woodenza bemüht sich um korrekte und aktuelle Informationen. Dennoch
-            können Fehler oder vorübergehende Unterbrechungen des Dienstes
-            auftreten. Externe Links bedeuten nicht, dass wir uns die Inhalte
-            Dritter zu eigen machen.
+            holzvanta bemüht sich um korrekte und aktuelle Informationen.
+            Dennoch können Fehler oder vorübergehende Unterbrechungen des
+            Dienstes auftreten. Externe Links bedeuten nicht, dass wir uns die
+            Inhalte Dritter zu eigen machen.
           </p>
         </section>
         <p className="legal-updated">

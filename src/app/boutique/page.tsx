@@ -1,9 +1,9 @@
 import ShopGrid from "@/components/ShopGrid";
 
 export const metadata = {
-  title: "Brennholz, Pellets und Öfen kaufen | Woodenza",
+  title: "holzvanta, Pellets und Öfen kaufen | holzvanta",
   description:
-    "Entdecken Sie das Woodenza-Sortiment: Brennholz, Pellets, Holzbriketts und Kaminöfen mit Lieferung in Deutschland.",
+    "Entdecken Sie das holzvanta-Sortiment: holzvanta, Pellets, Holzbriketts und Kaminöfen mit Lieferung in Deutschland.",
 };
 
 export default function BoutiquePage() {

@@ -272,7 +272,7 @@ export default function AdminPage() {
           <div className="admin-login-header">
             <i className="fa-solid fa-lock admin-login-icon"></i>
             <h1 className="admin-login-title">Connexion Admin</h1>
-            <p className="admin-login-subtitle">Administration Woodenza</p>
+            <p className="admin-login-subtitle">Administration holzvanta</p>
           </div>
 
           {loginError && <div className="admin-login-error">{loginError}</div>}
@@ -379,7 +379,9 @@ export default function AdminPage() {
             {savingBizum ? "Enregistrement..." : "Enregistrer Bizum"}
           </button>
         </form>
-        {bizumMessage && <p className="admin-payment-message">{bizumMessage}</p>}
+        {bizumMessage && (
+          <p className="admin-payment-message">{bizumMessage}</p>
+        )}
       </section>
 
       <section className="admin-payment-settings">
@@ -416,7 +418,10 @@ export default function AdminPage() {
                   {analytics.byCountry.map(({ country, visits }) => (
                     <li key={country}>
                       <span>
-                        <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <i
+                          className="fa-solid fa-location-dot"
+                          aria-hidden="true"
+                        ></i>
                         {country === "UNKNOWN" ? "Desconocido" : country}
                       </span>
                       <strong>{visits.toLocaleString("fr-FR")}</strong>

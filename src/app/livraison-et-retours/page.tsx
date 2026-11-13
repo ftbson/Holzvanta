@@ -22,27 +22,27 @@ export default function DeliveryReturnsPage() {
           <h2>2. Prüfung der Lieferung</h2>
           <p>
             Bitte prüfen Sie bei Erhalt den Zustand und die Menge der Produkte.
-            Melden Sie Probleme dem Transportunternehmen und Woodenza so bald
+            Melden Sie Probleme dem Transportunternehmen und holzvanta so bald
             wie möglich. Zur Dokumentation können Sie Fotos beifügen.
           </p>
         </section>
         <section className="legal-section">
           <h2>3. Rücksendungen und Widerruf</h2>
           <p>
-            Wenn Ihnen ein Widerrufsrecht zusteht, senden Sie uns innerhalb
-            der gesetzlichen Frist eine Nachricht an info@bonboisfr.fr und
-            geben Sie Ihre Bestellnummer an. Senden Sie die Produkte im
-            Originalzustand zurück, soweit dies nach ihrer Beschaffenheit und
-            einer bestimmungsgemäßen Prüfung möglich ist.
+            Wenn Ihnen ein Widerrufsrecht zusteht, senden Sie uns innerhalb der
+            gesetzlichen Frist eine Nachricht an info@bonboisfr.fr und geben Sie
+            Ihre Bestellnummer an. Senden Sie die Produkte im Originalzustand
+            zurück, soweit dies nach ihrer Beschaffenheit und einer
+            bestimmungsgemäßen Prüfung möglich ist.
           </p>
         </section>
         <section className="legal-section">
           <h2>4. Mögliche Ausnahmen</h2>
           <p>
-            Nach den gesetzlichen Vorschriften können personalisierte,
-            geöffnete oder verbrauchte Produkte sowie schnell verderbliche
-            Waren vom Widerruf ausgeschlossen sein. Wir informieren Sie,
-            welches Verfahren für Ihren Einkauf gilt.
+            Nach den gesetzlichen Vorschriften können personalisierte, geöffnete
+            oder verbrauchte Produkte sowie schnell verderbliche Waren vom
+            Widerruf ausgeschlossen sein. Wir informieren Sie, welches Verfahren
+            für Ihren Einkauf gilt.
           </p>
         </section>
         <section className="legal-section">

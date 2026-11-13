@@ -6,7 +6,7 @@ export default function TermsPage() {
         <h1 className="legal-title">Allgemeine Geschäftsbedingungen</h1>
         <p className="legal-intro">
           Diese Bedingungen regeln den Kauf von Brennstoffen und Heizartikeln im
-          Woodenza-Onlineshop.
+          holzvanta-Onlineshop.
         </p>
 
         <section className="legal-section">
@@ -68,7 +68,7 @@ export default function TermsPage() {
           <h2>7. Kontakt</h2>
           <p>
             Bei Fragen zu Ihrer Bestellung erreichen Sie uns unter
-            info@woodenza.es oder +34 727 74 54 78. Adresse: Avenida de la
+            info@holzvanta.es oder +34 727 74 54 78. Adresse: Avenida de la
             Constitución, 344, 08860 Castelldefels, Deutschland.
           </p>
         </section>

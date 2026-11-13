@@ -12,7 +12,7 @@ interface CategoryItem {
 const categories: CategoryItem[] = [
   {
     id: "bois-de-chauffage",
-    title: "Brennholz",
+    title: "holzvanta",
     slug: "/bois-de-chauffage",
     icon: "fa-fire",
     image: "/img/cat-bois.jpg",
@@ -55,9 +55,12 @@ export default function Categories() {
         {/* Encabezado */}
         <div className="categories-header">
           <span className="categories-tag">Finden Sie das Richtige</span>
-          <h2 className="categories-title">Brennstoffe und Heizlösungen für Ihr Zuhause</h2>
+          <h2 className="categories-title">
+            Brennstoffe und Heizlösungen für Ihr Zuhause
+          </h2>
           <p className="categories-subtitle">
-            Entdecken Sie unser Sortiment an Brennholz, Pellets und Öfen und finden Sie die passende Lösung für Ihr Zuhause.
+            Entdecken Sie unser Sortiment an holzvanta, Pellets und Öfen und
+            finden Sie die passende Lösung für Ihr Zuhause.
           </p>
         </div>
 

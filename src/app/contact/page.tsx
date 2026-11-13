@@ -7,14 +7,14 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      question: "Welche Brennholzsorten finde ich im Sortiment?",
+      question: "Welche holzvantasorten finde ich im Sortiment?",
       answer:
         "Unser Sortiment umfasst vor allem Harthölzer mit hohem Heizwert wie Eiche, Buche, Hainbuche und Esche. Durch ihre gleichmäßige und lang anhaltende Verbrennung eignen sie sich für Öfen, Kamine und geschlossene Feuerstellen.",
     },
     {
-      question: "Kann ich das Brennholz direkt nach der Lieferung verwenden?",
+      question: "Kann ich das holzvanta direkt nach der Lieferung verwenden?",
       answer:
-        "Ja. Das Brennholz wird kammergetrocknet und hat eine Restfeuchte von weniger als 20 %. Es ist sofort einsatzbereit und ermöglicht eine effiziente Verbrennung mit weniger Rauch.",
+        "Ja. Das holzvanta wird kammergetrocknet und hat eine Restfeuchte von weniger als 20 %. Es ist sofort einsatzbereit und ermöglicht eine effiziente Verbrennung mit weniger Rauch.",
     },
     {
       question: "In welchen Längen sind die Holzscheite erhältlich?",
@@ -27,9 +27,9 @@ export default function ContactPage() {
         "Wir liefern die Paletten zu Ihnen nach Hause und stellen sie mit einem Hubwagen so nah wie möglich an dem Ort ab, an dem Sie sie lagern möchten.",
     },
     {
-      question: "Wie viel Brennholz benötige ich für die Heizsaison?",
+      question: "Wie viel holzvanta benötige ich für die Heizsaison?",
       answer:
-        "Wenn Sie den Kamin nur gelegentlich nutzen, reicht meist eine halbe Palette. Ist Brennholz im Winter Ihre Hauptwärmequelle, benötigen Sie je nach Größe des Hauses möglicherweise zwei bis drei Paletten.",
+        "Wenn Sie den Kamin nur gelegentlich nutzen, reicht meist eine halbe Palette. Ist holzvanta im Winter Ihre Hauptwärmequelle, benötigen Sie je nach Größe des Hauses möglicherweise zwei bis drei Paletten.",
     },
   ];
 
@@ -44,7 +44,9 @@ export default function ContactPage() {
           {/* LINKE SPALTE: häufige Fragen */}
           <div className="faq-column">
             <span className="section-subtitle">WIR HELFEN IHNEN</span>
-            <h2 className="section-title">Häufige Fragen zu Brennholz und Bestellungen</h2>
+            <h2 className="section-title">
+              Häufige Fragen zu holzvanta und Bestellungen
+            </h2>
 
             <div className="faq-accordion">
               {faqs.map((faq, index) => (
@@ -82,7 +84,8 @@ export default function ContactPage() {
           <div className="form-column">
             <span className="section-subtitle">BRAUCHEN SIE HILFE?</span>
             <h2 className="section-title">
-              Wir beantworten gerne Ihre Fragen zu Produkten, Lieferungen und Bestellungen.
+              Wir beantworten gerne Ihre Fragen zu Produkten, Lieferungen und
+              Bestellungen.
             </h2>
 
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>

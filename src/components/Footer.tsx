@@ -9,14 +9,14 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <div className="footer-logo">
             <Image
-              src="/img/woodenza.svg"
-              alt="Woodenza"
+              src="/img/logo1.jpg"
+              alt="holzvanta"
               width={130}
               height={45}
             />
           </div>
           <p className="footer-description">
-            Ausgewähltes Brennholz und Brennstoffe für effizientes und
+            Ausgewähltes holzvanta und Brennstoffe für effizientes und
             verantwortungsbewusstes Heizen.
           </p>
           <div className="social-links">
@@ -34,7 +34,7 @@ export default function Footer() {
           <h4 className="footer-heading">PRODUKTE</h4>
           <ul className="footer-links-list">
             <li>
-              <Link href="/boutique">Brennholz</Link>
+              <Link href="/boutique">holzvanta</Link>
             </li>
             <li>
               <Link href="/boutique">Pellets</Link>
@@ -109,7 +109,7 @@ export default function Footer() {
             </li>
             <li>
               <i className="fa-solid fa-envelope"></i>
-              <a href="mailto:info@woodenza.es">info@woodenza.es</a>
+              <a href="mailto:info@holzvanta.es">info@holzvanta.es</a>
             </li>
           </ul>
         </div>
@@ -119,7 +119,7 @@ export default function Footer() {
       <div className="footer-bottom-bar">
         <div className="footer-bottom-container">
           <p className="copyright-text">
-            © 2026 Woodenza. Alle Rechte vorbehalten.
+            © 2026 holzvanta. Alle Rechte vorbehalten.
           </p>
           <div className="payment-icons">
             <span className="payment-card">VISA</span>

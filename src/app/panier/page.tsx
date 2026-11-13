@@ -146,7 +146,7 @@ export default function CartPage() {
             <i className="fa-solid fa-basket-shopping empty-icon"></i>
             <h2>Ihr Warenkorb ist noch leer</h2>
             <p>
-              Entdecken Sie unser Sortiment an Brennholz, Pellets und Öfen für
+              Entdecken Sie unser Sortiment an holzvanta, Pellets und Öfen für
               Ihr Zuhause.
             </p>
             <Link href="/boutique" className="btn-primary-cart">

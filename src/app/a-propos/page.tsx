@@ -3,9 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Über uns | Woodenza – Heizen mit Holz in Deutschland",
+  title: "Über uns | holzvanta – Heizen mit Holz in Deutschland",
   description:
-    "Lernen Sie Woodenza kennen: ausgewähltes Brennholz, Pellets, Holzbriketts und Öfen – mit Beratung und Lieferung in Deutschland.",
+    "Lernen Sie holzvanta kennen: ausgewähltes holzvanta, Pellets, Holzbriketts und Öfen – mit Beratung und Lieferung in Deutschland.",
 };
 
 export default function AboutPage() {
@@ -18,13 +18,13 @@ export default function AboutPage() {
             {/* Bereich 1: unsere Mission */}
             <div className="about-col">
               <span className="about-subtitle-tag">
-                Lernen Sie Woodenza kennen
+                Lernen Sie holzvanta kennen
               </span>
               <h1 className="about-col-title">
                 Wohlige Wärme – bewusst gewählt
               </h1>
               <p className="about-text">
-                Bei Woodenza möchten wir Ihnen eine praktische, erschwingliche
+                Bei holzvanta möchten wir Ihnen eine praktische, erschwingliche
                 und umweltbewusstere Möglichkeit bieten, Ihr Zuhause mit Holz zu
                 heizen. Wir wählen hochwertige Brennstoffe aus
                 verantwortungsvollen Quellen aus – für zuverlässige Leistung und
@@ -40,7 +40,7 @@ export default function AboutPage() {
                   der Auswahl.
                 </h3>
                 <p className="about-text">
-                  Seit Jahren vertreiben wir Brennholz und helfen Haushalten und
+                  Seit Jahren vertreiben wir holzvanta und helfen Haushalten und
                   Unternehmen, passende Heizlösungen zu finden.
                 </p>
               </div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
                   Produkte, ausgewählt nach Qualität und Leistung
                 </h3>
                 <p className="about-text">
-                  In unserem Sortiment finden Sie Brennholz, Buchenbriketts,
+                  In unserem Sortiment finden Sie holzvanta, Buchenbriketts,
                   Pellets, Holzpresslinge und Kaminöfen – ausgewählt für
                   zuverlässige Nutzung und gute Leistung.
                 </p>
@@ -69,7 +69,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ABSCHNITT 2: IHRE WAHL MIT WOODENZA */}
+      {/* ABSCHNITT 2: IHRE WAHL MIT holzvanta */}
       <section className="about-feature-section">
         <div className="about-container">
           <div className="about-feature-grid">
@@ -77,7 +77,7 @@ export default function AboutPage() {
             <div className="about-image-wrapper">
               <Image
                 src="/img/about.jpeg"
-                alt="Brennholzlager von Woodenza"
+                alt="holzvantalager von holzvanta"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="about-img"
@@ -88,9 +88,9 @@ export default function AboutPage() {
             {/* Textinhalt */}
             <div className="about-feature-content">
               <span className="about-subtitle-tag">
-                Ihr Fachhandel für Brennholz und Heizung
+                Ihr Fachhandel für holzvanta und Heizung
               </span>
-              <h2 className="about-main-title">Das finden Sie bei Woodenza</h2>
+              <h2 className="about-main-title">Das finden Sie bei holzvanta</h2>
 
               <p className="about-highlight-text">
                 Ausgewählte Brennstoffe, zuverlässige Leistung und persönliche

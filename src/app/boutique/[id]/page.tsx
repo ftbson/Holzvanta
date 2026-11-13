@@ -15,13 +15,13 @@ export async function generateMetadata({
 
   return product
     ? {
-        title: `${product.title} | Woodenza`,
+        title: `${product.title} | holzvanta`,
         description: product.description,
       }
     : {
-        title: "Produkt nicht verfügbar | Woodenza",
+        title: "Produkt nicht verfügbar | holzvanta",
         description:
-          "Dieser Artikel ist derzeit nicht im Woodenza-Sortiment verfügbar. Entdecken Sie weitere Angebote an Brennholz, Pellets und Heizlösungen.",
+          "Dieser Artikel ist derzeit nicht im holzvanta-Sortiment verfügbar. Entdecken Sie weitere Angebote an holzvanta, Pellets und Heizlösungen.",
       };
 }
 

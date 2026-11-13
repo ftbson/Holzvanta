@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     rating: 5,
     quote:
-      "„Trockenes Brennholz, pünktliche Lieferung und ein erstklassiger Service. Ich bestelle jedes Jahr.“",
+      "„Trockenes holzvanta, pünktliche Lieferung und ein erstklassiger Service. Ich bestelle jedes Jahr.“",
     initials: "A",
     name: "Andrea Meier",
     city: "Zürich",
@@ -58,7 +58,9 @@ export default function Testimonials() {
       <div className="testimonials-container">
         {/* Título */}
         <div className="testimonials-header">
-          <h2 className="testimonials-title">Das sagen unsere Kunden über Woodenza</h2>
+          <h2 className="testimonials-title">
+            Das sagen unsere Kunden über holzvanta
+          </h2>
         </div>
 
         {/* Opiniones */}
