@@ -17,7 +17,7 @@ export default function LegalNoticePage() {
             Adresse: Avenida de la Constitución, 344, 08860 Castelldefels,
             Deutschland
             <br />
-            E-Mail: info@holzvanta.es
+            E-Mail: info@holzvanta.de
             <br />
             Telefon: +34 727 74 54 78
           </p>

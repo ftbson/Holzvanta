@@ -109,7 +109,7 @@ export default function Footer() {
             </li>
             <li>
               <i className="fa-solid fa-envelope"></i>
-              <a href="mailto:info@holzvanta.es">info@holzvanta.es</a>
+              <a href="mailto:info@holzvanta.de">info@holzvanta.de</a>
             </li>
           </ul>
         </div>

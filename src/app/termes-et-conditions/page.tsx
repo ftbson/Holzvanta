@@ -68,7 +68,7 @@ export default function TermsPage() {
           <h2>7. Kontakt</h2>
           <p>
             Bei Fragen zu Ihrer Bestellung erreichen Sie uns unter
-            info@holzvanta.es oder +34 727 74 54 78. Adresse: Avenida de la
+            info@holzvanta.de oder +34 727 74 54 78. Adresse: Avenida de la
             Constitución, 344, 08860 Castelldefels, Deutschland.
           </p>
         </section>

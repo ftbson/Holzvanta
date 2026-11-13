@@ -85,10 +85,10 @@ export default function Navbar() {
           <div className="mobile-menu">
             <div className="mobile-menu-header">
               <Image
-                src="/img/holzvanta.svg"
+                src="/img/logo1.jpg"
                 alt="holzvanta"
                 width={100}
-                height={35}
+                height={50}
               />
               <div className="mobile-menu-actions">
                 <Link
